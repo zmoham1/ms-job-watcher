@@ -1,5 +1,8 @@
 {
   "title_filters": {
+    "add_strong_include_phrases": [
+      "project coordinator"
+    ],
     "add_hard_exclude_phrases": [
       "software engineer",
       "backend engineer",
