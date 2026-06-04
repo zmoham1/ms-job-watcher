@@ -2,7 +2,7 @@ name: Job Boards Sweep (Broad Lane)
 
 on:
   schedule:
-    - cron: '13 */3 * * *'
+    - cron: '0 22 * * *'
   workflow_dispatch:
 
 permissions:
@@ -42,7 +42,7 @@ jobs:
           HTTP_TIMEOUT: '15'
           STATE_PATH: state/seen_boards.json
         run: |
-          python watcher.py --mode boards --boards-batch-size 200
+          python watcher.py --mode boards --boards-batch-size 200 --hours-fresh 24 --always-send-summary
 
       - name: Commit updated state
         run: |

@@ -85,6 +85,10 @@ Net-new-by-platform count **not yet computed**: dedup vs. live 1,200 returned ze
 
 ## Recent changes
 
+- **2026-06-04** - `feat: add --hours-fresh posted-date filter`. `watcher.py` now supports `--hours-fresh N` in both `main` and `boards` mode and filters jobs by parsed `posted` timestamps before test emails and alerts are built. Current behavior is strict: jobs without a parseable posted timestamp are excluded when freshness filtering is enabled.
+- **2026-06-04** - `feat: add local watcher config for email + title filters`. `watcher.py` now reads optional `watcher.local.json` (or `WATCHER_LOCAL_CONFIG`) for local email credentials and configurable title filters. Env vars still win for GitHub Actions. Added `watcher.local.example.json` and ignored `watcher.local.json` so local secrets and role tweaks do not get committed.
+- **2026-06-04** - `feat: add always-send summary mode + local Windows automation scripts`. Added `--always-send-summary` so morning/evening runs can email a short "no matching jobs" digest instead of staying silent. Added `run_morning_digest.bat` and `run_evening_digest.bat`; local Windows Task Scheduler tasks were created at `8:00 AM` and `6:00 PM` using those scripts.
+
 - **2026-06-02** — Expansion plan designed + budget measured. Multi-pipeline shard architecture decided; GH/Lever first move agreed. Verified-list inventory started (URL-format mismatch blocked net-new count — resume next session). See "Future roadmap" section above.
 - **2026-06-02** — External triggering verified in production. `gh run list` confirms `event=workflow_dispatch` runs at 20:40 and 20:50 UTC (exactly 10 min apart, all success); boards dispatch also confirmed. Multi-hour latency fully resolved.
 - **2026-06-02** — `ci: switch to external dispatch trigger — downgrade schedule to sparse fallback`. cron-job.org now drives both workflows (watcher 10 min, boards 30 min) via `workflow_dispatch` API (HTTP 204 verified). GitHub `schedule:` downgraded to `13 */3 * * *` (sparse fallback). PAT expires 2026-08-31.

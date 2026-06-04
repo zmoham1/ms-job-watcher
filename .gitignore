@@ -3,6 +3,7 @@ __pycache__/
 *.pyc
 .DS_Store
 .env
+watcher.local.json
 
 # --- local artifacts (do not commit) ---
 data/boards/workday_debug/

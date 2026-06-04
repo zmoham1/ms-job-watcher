@@ -2,7 +2,7 @@ name: Job Watcher (Main Sources)
 
 on:
   schedule:
-    - cron: '13 */3 * * *'
+    - cron: '0 12 * * *'
   workflow_dispatch:
 
 permissions:
@@ -40,7 +40,7 @@ jobs:
           ALERT_TO_EMAIL: ${{ secrets.ALERT_TO_EMAIL }}
           HTTP_TIMEOUT: '30'
         run: |
-          python watcher.py --mode main
+          python watcher.py --mode main --hours-fresh 24 --always-send-summary
 
       - name: Commit updated state
         run: |

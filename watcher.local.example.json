@@ -1,0 +1,21 @@
+{
+  "email": {
+    "user": "your-gmail@gmail.com",
+    "app_password": "your-16-char-app-password",
+    "to": "your-alert-destination@gmail.com"
+  },
+  "title_filters": {
+    "add_strong_include_phrases": [
+      "frontend engineer",
+      "frontend developer",
+      "react engineer"
+    ],
+    "remove_strong_include_phrases": [
+      "data analyst"
+    ],
+    "add_hard_exclude_phrases": [
+      "security clearance",
+      "clearance required"
+    ]
+  }
+}

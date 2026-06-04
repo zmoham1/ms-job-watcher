@@ -1,0 +1,15 @@
+{
+  "title_filters": {
+    "add_hard_exclude_phrases": [
+      "software engineer",
+      "backend engineer",
+      "full stack",
+      "fullstack"
+    ],
+    "remove_strong_include_phrases": [
+      "software engineer",
+      "backend engineer",
+      "full stack"
+    ]
+  }
+}

@@ -11,6 +11,7 @@ import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from urllib.parse import urlparse
 from email.mime.text import MIMEText
+from email.utils import parsedate_to_datetime
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Set, Tuple, Optional
 
@@ -20,6 +21,78 @@ from urllib3.util.retry import Retry
 
 # Path to this script's directory (for resolving relative files)
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+
+def _resolve_config_path(raw_path: str) -> str:
+    config_path = raw_path
+    if not os.path.isabs(config_path):
+        config_path = os.path.abspath(os.path.join(SCRIPT_DIR, config_path))
+    return config_path
+
+
+def _load_optional_config(raw_path: str, label: str) -> Dict[str, Any]:
+    raw_path = (raw_path or "").strip()
+    if not raw_path:
+        return {}
+
+    config_path = _resolve_config_path(raw_path)
+    if not os.path.exists(config_path):
+        return {}
+
+    with open(config_path, "r", encoding="utf-8") as f:
+        loaded = json.load(f)
+
+    if not isinstance(loaded, dict):
+        raise ValueError(f"{label} config must be a JSON object: {config_path}")
+
+    return loaded
+
+
+def _deep_merge_dicts(base: Dict[str, Any], override: Dict[str, Any]) -> Dict[str, Any]:
+    merged: Dict[str, Any] = dict(base)
+    for key, value in override.items():
+        if isinstance(value, dict) and isinstance(merged.get(key), dict):
+            merged[key] = _deep_merge_dicts(merged[key], value)
+        else:
+            merged[key] = value
+    return merged
+
+
+REPO_CONFIG = _load_optional_config(os.getenv("WATCHER_REPO_CONFIG") or "watcher.config.json", "repo")
+LOCAL_CONFIG = _load_optional_config(os.getenv("WATCHER_LOCAL_CONFIG") or "watcher.local.json", "local")
+CONFIG = _deep_merge_dicts(REPO_CONFIG, LOCAL_CONFIG)
+
+
+def _config_get(path: str, default: Any = None) -> Any:
+    cur: Any = CONFIG
+    for part in path.split("."):
+        if not isinstance(cur, dict) or part not in cur:
+            return default
+        cur = cur[part]
+    return cur
+
+
+def _configured_list(key: str, defaults: List[str]) -> List[str]:
+    explicit = _config_get(f"title_filters.{key}")
+    if explicit is not None:
+        if not isinstance(explicit, list):
+            raise ValueError(f"title_filters.{key} must be a list")
+        return [str(x).strip().lower() for x in explicit if str(x).strip()]
+
+    remove_values = _config_get(f"title_filters.remove_{key}", []) or []
+    add_values = _config_get(f"title_filters.add_{key}", []) or []
+    if not isinstance(remove_values, list) or not isinstance(add_values, list):
+        raise ValueError(f"title_filters add/remove entries for {key} must be lists")
+
+    remove_set = {str(x).strip().lower() for x in remove_values if str(x).strip()}
+    merged = [item for item in defaults if item.lower() not in remove_set]
+
+    for extra in add_values:
+        normalized = str(extra).strip().lower()
+        if normalized and normalized not in merged:
+            merged.append(normalized)
+
+    return merged
 
 # -----------------------------
 # Workday URL parsing helpers (CXS)
@@ -131,15 +204,15 @@ SMARTRECRUITERS_API_BASE = "https://api.smartrecruiters.com/v1/companies"
 # -----------------------------
 # Email env vars
 # -----------------------------
-EMAIL_USER = os.getenv("EMAIL_USER")
-EMAIL_APP_PASSWORD = os.getenv("EMAIL_APP_PASSWORD")
-ALERT_TO_EMAIL = os.getenv("ALERT_TO_EMAIL")
+EMAIL_USER = os.getenv("EMAIL_USER") or _config_get("email.user")
+EMAIL_APP_PASSWORD = os.getenv("EMAIL_APP_PASSWORD") or _config_get("email.app_password")
+ALERT_TO_EMAIL = os.getenv("ALERT_TO_EMAIL") or _config_get("email.to")
 
 
 # -----------------------------
 # Title filtering
 # -----------------------------
-STRONG_INCLUDE_PHRASES = [
+DEFAULT_STRONG_INCLUDE_PHRASES = [
     "software engineer",
     "software developer",
     "software development engineer",
@@ -168,14 +241,14 @@ STRONG_INCLUDE_PHRASES = [
     "software development engineer in test",
 ]
 
-WEAK_INCLUDE_PHRASES = [
+DEFAULT_WEAK_INCLUDE_PHRASES = [
     "developer",
     "software",
     "engineer",
     "analytics",
 ]
 
-SENIORITY_MAYBE_TOKENS = [
+DEFAULT_SENIORITY_MAYBE_TOKENS = [
     "senior",
     "sr",
     "staff",
@@ -187,7 +260,7 @@ SENIORITY_MAYBE_TOKENS = [
     "director",
 ]
 
-HARD_EXCLUDE_PHRASES = [
+DEFAULT_HARD_EXCLUDE_PHRASES = [
     "quality assurance",
     "qa ",
     " qa",
@@ -213,7 +286,7 @@ HARD_EXCLUDE_PHRASES = [
     "support engineer",
 ]
 
-HARD_EXCLUDE_REGEXES = [
+DEFAULT_HARD_EXCLUDE_REGEXES = [
     r"\bintern\b",
     r"\binternship\b",
     r"\bco[- ]?op\b",
@@ -221,12 +294,19 @@ HARD_EXCLUDE_REGEXES = [
     r"\bapprentice\b",
 ]
 
-SOFT_EXCLUDE_PHRASES = [
+DEFAULT_SOFT_EXCLUDE_PHRASES = [
     "devops",
     "operations",
     "ops",
     "automation",
 ]
+
+STRONG_INCLUDE_PHRASES = _configured_list("strong_include_phrases", DEFAULT_STRONG_INCLUDE_PHRASES)
+WEAK_INCLUDE_PHRASES = _configured_list("weak_include_phrases", DEFAULT_WEAK_INCLUDE_PHRASES)
+SENIORITY_MAYBE_TOKENS = _configured_list("seniority_maybe_tokens", DEFAULT_SENIORITY_MAYBE_TOKENS)
+HARD_EXCLUDE_PHRASES = _configured_list("hard_exclude_phrases", DEFAULT_HARD_EXCLUDE_PHRASES)
+HARD_EXCLUDE_REGEXES = _configured_list("hard_exclude_regexes", DEFAULT_HARD_EXCLUDE_REGEXES)
+SOFT_EXCLUDE_PHRASES = _configured_list("soft_exclude_phrases", DEFAULT_SOFT_EXCLUDE_PHRASES)
 
 
 def _norm_title(title: str) -> str:
@@ -278,6 +358,66 @@ def classify_title(title: str) -> str:
 
 def title_matches(title: str) -> bool:
     return classify_title(title) in ("yes", "maybe")
+
+
+def parse_posted_datetime(raw: Any) -> Optional[datetime]:
+    if raw is None:
+        return None
+
+    if isinstance(raw, datetime):
+        dt = raw
+        return dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
+
+    if isinstance(raw, (int, float)):
+        value = float(raw)
+        if value > 1e12:
+            value = value / 1000.0
+        try:
+            return datetime.fromtimestamp(value, tz=timezone.utc)
+        except (OverflowError, OSError, ValueError):
+            return None
+
+    text = str(raw).strip()
+    if not text:
+        return None
+
+    normalized = text.replace("Z", "+00:00")
+    if normalized.endswith(" UTC"):
+        normalized = normalized[:-4] + "+00:00"
+
+    for candidate in (
+        normalized,
+        normalized.replace(" ", "T"),
+        normalized.split(".")[0] + ("+00:00" if normalized.endswith("+00:00") else ""),
+    ):
+        try:
+            dt = datetime.fromisoformat(candidate)
+            return dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
+        except ValueError:
+            pass
+
+    for fmt in ("%Y-%m-%d %H:%M %z", "%Y-%m-%d", "%m/%d/%Y", "%Y/%m/%d"):
+        try:
+            dt = datetime.strptime(text, fmt)
+            return dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
+        except ValueError:
+            pass
+
+    try:
+        dt = parsedate_to_datetime(text)
+        return dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
+    except (TypeError, ValueError, IndexError):
+        return None
+
+
+def job_is_fresh_enough(job: Dict[str, str], hours_fresh: Optional[int]) -> bool:
+    if hours_fresh is None:
+        return True
+    posted_dt = parse_posted_datetime(job.get("posted"))
+    if posted_dt is None:
+        return False
+    cutoff = datetime.now(timezone.utc).timestamp() - (hours_fresh * 3600)
+    return posted_dt.timestamp() >= cutoff
 
 
 # -----------------------------
@@ -1881,6 +2021,7 @@ def send_email_digest(
     yes_jobs: List[Dict[str, str]],
     maybe_jobs: List[Dict[str, str]],
     subject_prefix: str = "[Job Alerts]",
+    hours_fresh: Optional[int] = None,
 ) -> None:
     if not (EMAIL_USER and EMAIL_APP_PASSWORD and ALERT_TO_EMAIL):
         raise RuntimeError("Missing EMAIL_USER / EMAIL_APP_PASSWORD / ALERT_TO_EMAIL env vars.")
@@ -1889,9 +2030,16 @@ def send_email_digest(
     companies = sorted({j.get("company", "") for j in all_jobs if j.get("company")})
     company_str = ", ".join(companies) if companies else "Jobs"
 
-    subject = f"{subject_prefix} {len(yes_jobs)} yes + {len(maybe_jobs)} maybe ({company_str})"
+    freshness_suffix = f" | <= {hours_fresh}h old" if hours_fresh is not None else ""
+    subject = f"{subject_prefix} {len(yes_jobs)} yes + {len(maybe_jobs)} maybe ({company_str}){freshness_suffix}"
 
     lines: List[str] = []
+    if not yes_jobs and not maybe_jobs:
+        if hours_fresh is not None:
+            lines.append(f"No matching jobs were found in the last {hours_fresh} hours.\n")
+        else:
+            lines.append("No matching jobs were found in this run.\n")
+
     lines.append(f"YES bucket: {len(yes_jobs)} job(s)\n")
     for j in yes_jobs:
         posted = f" | {j['posted']}" if j.get("posted") else ""
@@ -1931,7 +2079,13 @@ def safe_call(label: str, fn):
         return None, f"{label}: {type(e).__name__}: {e}"
 
 
-def main(test_email: bool = False, no_email: bool = False, dry_run: bool = False) -> None:
+def main(
+    test_email: bool = False,
+    no_email: bool = False,
+    dry_run: bool = False,
+    hours_fresh: Optional[int] = None,
+    always_send_summary: bool = False,
+) -> None:
     t0 = time.time()
     seen = load_seen_ids(STATE_PATH)
 
@@ -2000,8 +2154,12 @@ def main(test_email: bool = False, no_email: bool = False, dry_run: bool = False
         normalized.extend(_oracle_norm)
         src_norm["oracle"] = _oracle_norm
 
-    yes_matched = [j for j in normalized if classify_title(j.get("title", "")) == "yes"]
-    maybe_matched = [j for j in normalized if classify_title(j.get("title", "")) == "maybe"]
+    filtered_normalized = [j for j in normalized if job_is_fresh_enough(j, hours_fresh)]
+    if hours_fresh is not None:
+        print(f"[FILTER] Freshness <= {hours_fresh}h kept {len(filtered_normalized)}/{len(normalized)} fetched jobs.")
+
+    yes_matched = [j for j in filtered_normalized if classify_title(j.get("title", "")) == "yes"]
+    maybe_matched = [j for j in filtered_normalized if classify_title(j.get("title", "")) == "maybe"]
     matched = yes_matched + maybe_matched
 
     _per_source: Dict[str, Dict[str, Any]] = {}
@@ -2025,7 +2183,7 @@ def main(test_email: bool = False, no_email: bool = False, dry_run: bool = False
         if no_email:
             print(f"[TEST] no-email enabled; would have sent {len(sample_yes) + len(sample_maybe)} job(s) to {ALERT_TO_EMAIL}.")
         else:
-            send_email_digest(sample_yes, sample_maybe, subject_prefix="[TEST Job Alerts]")
+            send_email_digest(sample_yes, sample_maybe, subject_prefix="[TEST Job Alerts]", hours_fresh=hours_fresh)
             print(f"[TEST] Sent a test email with {len(sample_yes) + len(sample_maybe)} job(s) to {ALERT_TO_EMAIL}.")
         if errors:
             print("[WARN] Some sources failed:")
@@ -2070,14 +2228,21 @@ def main(test_email: bool = False, no_email: bool = False, dry_run: bool = False
         if no_email:
             print(f"[ALERT] no-email enabled; {len(new_yes)} yes + {len(new_maybe)} maybe new job(s) detected (not emailed).")
         else:
-            send_email_digest(new_yes, new_maybe, subject_prefix="[Job Alerts]")
+            send_email_digest(new_yes, new_maybe, subject_prefix="[Job Alerts]", hours_fresh=hours_fresh)
             print(f"[ALERT] Sent digest for {len(new_yes)} yes + {len(new_maybe)} maybe new job(s).")
             for _j in new_yes + new_maybe:
                 _src = (_j.get("key") or "").split(":")[0]
                 if _src in _per_source:
                     _per_source[_src]["emailed"] += 1
     else:
-        print("[OK] No new jobs.")
+        if always_send_summary:
+            if no_email:
+                print("[SUMMARY] no-email enabled; would have sent an empty summary email.")
+            else:
+                send_email_digest([], [], subject_prefix="[Job Alerts Summary]", hours_fresh=hours_fresh)
+                print("[SUMMARY] Sent empty summary email.")
+        else:
+            print("[OK] No new jobs.")
 
     if not dry_run:
         seen |= latest_keys
@@ -2114,6 +2279,8 @@ if __name__ == "__main__":
     parser.add_argument("--boards-timeout", type=int, default=DEFAULT_TIMEOUT, help=f"HTTP timeout in seconds for boards adapters (default: {DEFAULT_TIMEOUT}).")
     parser.add_argument("--boards-run-until-wrap", action="store_true", help="In boards mode, keep running batches until cursor wraps to 0 (full sweep).")
     parser.add_argument("--boards-max-iterations", type=int, default=2000, help="Safety cap for --boards-run-until-wrap (default: 2000 iterations).")
+    parser.add_argument("--hours-fresh", type=int, default=None, help="Only keep jobs whose posted timestamp is within the last N hours.")
+    parser.add_argument("--always-send-summary", action="store_true", help="Send an email even when no new matching jobs were found.")
 
     args = parser.parse_args()
 
@@ -2159,6 +2326,12 @@ if __name__ == "__main__":
                 suppress_new_boards=not args.test_email,
             )
 
+            if args.hours_fresh is not None:
+                pre_filter_count = len(matched)
+                matched = [j for j in matched if job_is_fresh_enough(j, args.hours_fresh)]
+                latest_keys = {j["key"] for j in matched if j.get("key")}
+                print(f"[FILTER] Freshness <= {args.hours_fresh}h kept {len(matched)}/{pre_filter_count} matched boards jobs.")
+
             if bootstrap_keys:
                 seen.update(bootstrap_keys)
             if bootstrap_boards:
@@ -2172,7 +2345,7 @@ if __name__ == "__main__":
                 if args.no_email:
                     print(f"[TEST] no-email enabled; would have sent {len(sample_yes) + len(sample_maybe)} job(s) to {ALERT_TO_EMAIL}.")
                 else:
-                    send_email_digest(sample_yes, sample_maybe, subject_prefix="[TEST Boards Alerts]")
+                    send_email_digest(sample_yes, sample_maybe, subject_prefix="[TEST Boards Alerts]", hours_fresh=args.hours_fresh)
                     print(f"[TEST] Sent a test boards email with {len(sample_yes) + len(sample_maybe)} job(s) to {ALERT_TO_EMAIL}.")
 
                 if not args.dry_run:
@@ -2221,14 +2394,21 @@ if __name__ == "__main__":
                 if args.no_email:
                     print(f"[ALERT] no-email enabled; {len(new_yes)} yes + {len(new_maybe)} maybe new job(s) detected (not emailed).")
                 else:
-                    send_email_digest(new_yes, new_maybe, subject_prefix="[Boards Alerts]")
+                    send_email_digest(new_yes, new_maybe, subject_prefix="[Boards Alerts]", hours_fresh=args.hours_fresh)
                     print(f"[ALERT] Sent boards digest for {len(new_yes)} yes + {len(new_maybe)} maybe new job(s).")
                     for _j in new_yes + new_maybe:
                         _plat = (_j.get("key") or "").split(":")[0]
                         if _plat in per_platform:
                             per_platform[_plat]["emailed"] = per_platform[_plat].get("emailed", 0) + 1
             else:
-                print("[OK] No new boards jobs.")
+                if args.always_send_summary:
+                    if args.no_email:
+                        print("[SUMMARY] no-email enabled; would have sent an empty boards summary email.")
+                    else:
+                        send_email_digest([], [], subject_prefix="[Boards Alerts Summary]", hours_fresh=args.hours_fresh)
+                        print("[SUMMARY] Sent empty boards summary email.")
+                else:
+                    print("[OK] No new boards jobs.")
 
             if not args.dry_run:
                 seen.update(latest_keys)
@@ -2277,4 +2457,10 @@ if __name__ == "__main__":
             _ = run_one_boards_batch()
 
     else:
-        main(test_email=args.test_email, no_email=args.no_email, dry_run=args.dry_run)
+        main(
+            test_email=args.test_email,
+            no_email=args.no_email,
+            dry_run=args.dry_run,
+            hours_fresh=args.hours_fresh,
+            always_send_summary=args.always_send_summary,
+        )
