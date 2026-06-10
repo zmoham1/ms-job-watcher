@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-06-09T23:20:03.972482+00:00",
+  "updated_utc": "2026-06-10T23:27:15.862487+00:00",
   "boards_dead": [
     "ashby:laminar",
     "ashby:machinify",
@@ -676,6 +676,7 @@
     "greenhouse:vertex",
     "greenhouse:vetcove",
     "greenhouse:vevo",
+    "greenhouse:veza",
     "greenhouse:viator",
     "greenhouse:vibrantplanet",
     "greenhouse:vicaroussurgical",
