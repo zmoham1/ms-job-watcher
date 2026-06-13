@@ -1,13 +1,17 @@
 {
   "title_filters": {
     "add_strong_include_phrases": [
-      "project coordinator"
+      "project coordinator",
+      "business analyst"
     ],
     "add_hard_exclude_phrases": [
       "software engineer",
       "backend engineer",
       "full stack",
       "fullstack"
+    ],
+    "remove_hard_exclude_phrases": [
+      "business analyst"
     ],
     "remove_strong_include_phrases": [
       "software engineer",
