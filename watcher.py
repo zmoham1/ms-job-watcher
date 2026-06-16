@@ -14,6 +14,7 @@ from email.mime.text import MIMEText
 from email.utils import parsedate_to_datetime
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Set, Tuple, Optional
+import html
 
 import requests
 from requests.adapters import HTTPAdapter
@@ -301,12 +302,35 @@ DEFAULT_SOFT_EXCLUDE_PHRASES = [
     "automation",
 ]
 
+DEFAULT_HARD_EXCLUDE_TEXT_PHRASES = [
+    "u.s. citizenship required",
+    "us citizenship required",
+    "must be a u.s. citizen",
+    "must be a us citizen",
+    "must be a united states citizen",
+    "must be us citizen",
+    "requires us citizenship",
+    "requires u.s. citizenship",
+    "u.s. citizen required",
+    "us citizen required",
+    "active security clearance",
+    "security clearance required",
+    "must be eligible to obtain a security clearance",
+    "must have the ability to obtain a security clearance",
+    "ability to obtain a security clearance",
+    "must be able to obtain a security clearance",
+    "must be eligible to work on itar projects",
+    "itar",
+    "export control regulations",
+]
+
 STRONG_INCLUDE_PHRASES = _configured_list("strong_include_phrases", DEFAULT_STRONG_INCLUDE_PHRASES)
 WEAK_INCLUDE_PHRASES = _configured_list("weak_include_phrases", DEFAULT_WEAK_INCLUDE_PHRASES)
 SENIORITY_MAYBE_TOKENS = _configured_list("seniority_maybe_tokens", DEFAULT_SENIORITY_MAYBE_TOKENS)
 HARD_EXCLUDE_PHRASES = _configured_list("hard_exclude_phrases", DEFAULT_HARD_EXCLUDE_PHRASES)
 HARD_EXCLUDE_REGEXES = _configured_list("hard_exclude_regexes", DEFAULT_HARD_EXCLUDE_REGEXES)
 SOFT_EXCLUDE_PHRASES = _configured_list("soft_exclude_phrases", DEFAULT_SOFT_EXCLUDE_PHRASES)
+HARD_EXCLUDE_TEXT_PHRASES = _configured_list("hard_exclude_text_phrases", DEFAULT_HARD_EXCLUDE_TEXT_PHRASES)
 
 
 def _norm_title(title: str) -> str:
@@ -358,6 +382,27 @@ def classify_title(title: str) -> str:
 
 def title_matches(title: str) -> bool:
     return classify_title(title) in ("yes", "maybe")
+
+
+def _clean_text_blob(raw: Any) -> str:
+    if raw is None:
+        return ""
+    if isinstance(raw, list):
+        raw = " ".join(str(x) for x in raw if x is not None)
+    elif isinstance(raw, dict):
+        raw = " ".join(str(v) for v in raw.values() if v is not None)
+    text = str(raw)
+    text = html.unescape(text)
+    text = re.sub(r"<[^>]+>", " ", text)
+    text = re.sub(r"\s+", " ", text).strip().lower()
+    return text
+
+
+def job_passes_eligibility_filters(job: Dict[str, str]) -> bool:
+    text = _clean_text_blob(job.get("eligibility_text", ""))
+    if not text:
+        return True
+    return not any(phrase in text for phrase in HARD_EXCLUDE_TEXT_PHRASES)
 
 
 def parse_posted_datetime(raw: Any) -> Optional[datetime]:
@@ -1090,6 +1135,12 @@ def normalize_eightfold_position(source: str, pos: Dict[str, Any]) -> Dict[str, 
         "location": str(loc),
         "posted": str(posted_str),
         "url": str(url),
+        "eligibility_text": _clean_text_blob(
+            pos.get("description")
+            or pos.get("jobDescription")
+            or pos.get("overview")
+            or ""
+        ),
     }
 
 
@@ -1168,7 +1219,21 @@ def normalize_amazon_job(job: Dict[str, Any]) -> Dict[str, str]:
     if not url:
         url = "https://www.amazon.jobs/en/search"
 
-    return {"key": str(key), "company": "Amazon", "title": str(title), "location": str(loc), "posted": str(posted_str), "url": str(url)}
+    return {
+        "key": str(key),
+        "company": "Amazon",
+        "title": str(title),
+        "location": str(loc),
+        "posted": str(posted_str),
+        "url": str(url),
+        "eligibility_text": _clean_text_blob(
+            job.get("description")
+            or job.get("job_description")
+            or job.get("basic_qualifications")
+            or job.get("preferred_qualifications")
+            or ""
+        ),
+    }
 
 
 # -----------------------------
@@ -1221,7 +1286,15 @@ def normalize_goldman_item(item: Dict[str, Any]) -> Dict[str, str]:
         loc = first.get("primary") or make_location([first.get("city"), first.get("state"), first.get("country")])
     role_id = str(item.get("roleId", ""))
     url = f"https://higher.gs.com/roles/{role_id}" if role_id else "https://higher.gs.com/results"
-    return {"key": str(key), "company": "Goldman Sachs", "title": str(title), "location": str(loc), "posted": "", "url": str(url)}
+    return {
+        "key": str(key),
+        "company": "Goldman Sachs",
+        "title": str(title),
+        "location": str(loc),
+        "posted": "",
+        "url": str(url),
+        "eligibility_text": "",
+    }
 
 
 # -----------------------------
@@ -1298,7 +1371,15 @@ def normalize_ibm_hit(hit: Dict[str, Any]) -> Dict[str, str]:
         loc_str = loc
     else:
         loc_str = "United States"
-    return {"key": str(key), "company": "IBM", "title": str(title), "location": str(loc_str), "posted": str(posted_str), "url": str(url)}
+    return {
+        "key": str(key),
+        "company": "IBM",
+        "title": str(title),
+        "location": str(loc_str),
+        "posted": str(posted_str),
+        "url": str(url),
+        "eligibility_text": _clean_text_blob(src.get("description") or src.get("summary") or ""),
+    }
 
 
 # -----------------------------
@@ -1354,7 +1435,20 @@ def normalize_oracle_req(req: Dict[str, Any]) -> Dict[str, str]:
     url = req.get("ExternalApplyLink") or req.get("externalApplyUrl") or req.get("applyUrl") or ""
     if not url:
         url = "https://careers.oracle.com/jobs/#en/sites/jobsearch"
-    return {"key": str(key), "company": "Oracle", "title": str(title), "location": str(loc), "posted": str(posted_str), "url": str(url)}
+    return {
+        "key": str(key),
+        "company": "Oracle",
+        "title": str(title),
+        "location": str(loc),
+        "posted": str(posted_str),
+        "url": str(url),
+        "eligibility_text": _clean_text_blob(
+            req.get("Description")
+            or req.get("description")
+            or req.get("jobDescription")
+            or ""
+        ),
+    }
 
 
 # -----------------------------
@@ -1569,7 +1663,20 @@ def normalize_workday_post(company_name: str, board_url: str, post: Dict[str, An
 
     key = workday_key_from_post(tenant, site, post, url)
 
-    return {"key": str(key), "company": str(company_name), "title": str(title), "location": str(loc), "posted": str(posted), "url": str(url)}
+    return {
+        "key": str(key),
+        "company": str(company_name),
+        "title": str(title),
+        "location": str(loc),
+        "posted": str(posted),
+        "url": str(url),
+        "eligibility_text": _clean_text_blob(
+            post.get("bulletFields")
+            or post.get("jobDescription")
+            or post.get("description")
+            or ""
+        ),
+    }
 
 
 # -----------------------------
@@ -1652,7 +1759,20 @@ def normalize_smartrecruiters_post(company_name: str, board_url: str, post: Dict
     if not url:
         url = board_url
 
-    return {"key": str(key), "company": str(company_name), "title": str(title), "location": str(loc_str), "posted": str(posted), "url": str(url)}
+    return {
+        "key": str(key),
+        "company": str(company_name),
+        "title": str(title),
+        "location": str(loc_str),
+        "posted": str(posted),
+        "url": str(url),
+        "eligibility_text": _clean_text_blob(
+            post.get("jobAd")
+            or post.get("description")
+            or post.get("qualifications")
+            or ""
+        ),
+    }
 
 
 # -----------------------------
@@ -1709,7 +1829,19 @@ def normalize_greenhouse_job(company_name: str, company_slug: str, job: Dict[str
 
     posted_str = job.get("updated_at") or job.get("created_at") or ""
     url = job.get("absolute_url") or job.get("url") or ""
-    return {"key": str(key), "company": str(company_name), "title": str(title), "location": str(loc), "posted": str(posted_str), "url": str(url)}
+    return {
+        "key": str(key),
+        "company": str(company_name),
+        "title": str(title),
+        "location": str(loc),
+        "posted": str(posted_str),
+        "url": str(url),
+        "eligibility_text": _clean_text_blob(
+            job.get("content")
+            or job.get("description")
+            or ""
+        ),
+    }
 
 
 def normalize_lever_job(company_name: str, company_slug: str, job: Dict[str, Any]) -> Dict[str, str]:
@@ -1727,7 +1859,20 @@ def normalize_lever_job(company_name: str, company_slug: str, job: Dict[str, Any
         posted_str = datetime.fromtimestamp(float(posted_str) / 1000.0, tz=timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
 
     url = job.get("hostedUrl") or job.get("applyUrl") or ""
-    return {"key": str(key), "company": str(company_name), "title": str(title), "location": str(loc), "posted": str(posted_str), "url": str(url)}
+    return {
+        "key": str(key),
+        "company": str(company_name),
+        "title": str(title),
+        "location": str(loc),
+        "posted": str(posted_str),
+        "url": str(url),
+        "eligibility_text": _clean_text_blob(
+            job.get("descriptionPlain")
+            or job.get("description")
+            or job.get("lists")
+            or ""
+        ),
+    }
 
 
 # -----------------------------
@@ -1787,7 +1932,15 @@ def normalize_ashby_job(company_name: str, company_slug: str, job: Dict[str, Any
         if job_id
         else f"https://jobs.ashbyhq.com/{company_slug}"
     )
-    return {"key": str(key), "company": str(company_name), "title": str(title), "location": str(loc), "posted": "", "url": str(url)}
+    return {
+        "key": str(key),
+        "company": str(company_name),
+        "title": str(title),
+        "location": str(loc),
+        "posted": "",
+        "url": str(url),
+        "eligibility_text": "",
+    }
 
 
 # -----------------------------
@@ -1985,7 +2138,12 @@ def run_boards_sweep(
             if norm_jobs:
                 normalized.extend(norm_jobs)
 
-    matched = [j for j in normalized if title_matches(j.get("title", "")) and is_us_location(j.get("location", ""))]
+    matched = [
+        j for j in normalized
+        if title_matches(j.get("title", ""))
+        and is_us_location(j.get("location", ""))
+        and job_passes_eligibility_filters(j)
+    ]
     latest_keys = {j["key"] for j in matched if j.get("key")}
 
     per_platform: Dict[str, Dict[str, Any]] = {}
@@ -2158,8 +2316,12 @@ def main(
     if hours_fresh is not None:
         print(f"[FILTER] Freshness <= {hours_fresh}h kept {len(filtered_normalized)}/{len(normalized)} fetched jobs.")
 
-    yes_matched = [j for j in filtered_normalized if classify_title(j.get("title", "")) == "yes"]
-    maybe_matched = [j for j in filtered_normalized if classify_title(j.get("title", "")) == "maybe"]
+    eligible_normalized = [j for j in filtered_normalized if job_passes_eligibility_filters(j)]
+    if len(eligible_normalized) != len(filtered_normalized):
+        print(f"[FILTER] Eligibility text filter kept {len(eligible_normalized)}/{len(filtered_normalized)} fresh jobs.")
+
+    yes_matched = [j for j in eligible_normalized if classify_title(j.get("title", "")) == "yes"]
+    maybe_matched = [j for j in eligible_normalized if classify_title(j.get("title", "")) == "maybe"]
     matched = yes_matched + maybe_matched
 
     _per_source: Dict[str, Dict[str, Any]] = {}
