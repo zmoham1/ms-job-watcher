@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-06-20T23:10:56.553518+00:00",
+  "updated_utc": "2026-06-21T23:15:31.378556+00:00",
   "boards_dead": [
     "ashby:contextual",
     "ashby:laminar",
@@ -579,6 +579,7 @@
     "greenhouse:ted",
     "greenhouse:tegus",
     "greenhouse:telemetry",
+    "greenhouse:temporal",
     "greenhouse:ten",
     "greenhouse:tendril",
     "greenhouse:tenovos",
