@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-06-26T23:07:51.099588+00:00",
+  "updated_utc": "2026-06-27T23:04:32.929467+00:00",
   "boards_dead": [
     "ashby:contextual",
     "ashby:laminar",
@@ -624,6 +624,7 @@
     "greenhouse:truecar",
     "greenhouse:truefit",
     "greenhouse:trueml",
+    "greenhouse:truework",
     "greenhouse:trustly",
     "greenhouse:ttec",
     "greenhouse:tubi",
