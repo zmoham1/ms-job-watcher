@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-07-02T23:09:15.879432+00:00",
+  "updated_utc": "2026-07-03T23:06:42.234510+00:00",
   "boards_dead": [
     "ashby:contextual",
     "ashby:laminar",
@@ -607,6 +607,7 @@
     "greenhouse:tradr",
     "greenhouse:trailblazer",
     "greenhouse:trala",
+    "greenhouse:transcarent",
     "greenhouse:transferwise",
     "greenhouse:transfix",
     "greenhouse:transitscreen",
