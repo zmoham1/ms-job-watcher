@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-07-05T23:01:30.954710+00:00",
+  "updated_utc": "2026-07-06T23:10:18.113175+00:00",
   "boards_dead": [
     "ashby:contextual",
     "ashby:laminar",
@@ -17,6 +17,7 @@
     "greenhouse:alan",
     "greenhouse:alchemy",
     "greenhouse:alltrails",
+    "greenhouse:alma",
     "greenhouse:anchore",
     "greenhouse:andela",
     "greenhouse:angellist",
