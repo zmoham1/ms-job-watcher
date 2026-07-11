@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-07-10T23:00:34.118207+00:00",
+  "updated_utc": "2026-07-11T22:49:13.223032+00:00",
   "boards_dead": [
     "ashby:contextual",
     "ashby:laminar",
@@ -264,6 +264,7 @@
     "greenhouse:linear",
     "greenhouse:linksquares",
     "greenhouse:loadsmart",
+    "greenhouse:loop",
     "greenhouse:lootcrate",
     "greenhouse:lucid",
     "greenhouse:lucidworks",
