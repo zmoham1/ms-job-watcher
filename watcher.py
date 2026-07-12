@@ -614,30 +614,13 @@ GS_PAYLOAD: Dict[str, Any] = {
             "sort": {"sortStrategy": "POSTED_DATE", "sortOrder": "DESC"},
             "filters": [
                 {
-                    "filterCategoryType": "EXPERIENCE_LEVEL",
-                    "filters": [
-                        {"filter": "Support", "subFilters": []},
-                        {"filter": "Seasonal", "subFilters": []},
-                        {"filter": "Associate", "subFilters": []},
-                    ],
-                },
-                {
                     "filterCategoryType": "JOB_FUNCTION",
                     "filters": [{"filter": "Software Engineering", "subFilters": []}],
                 },
                 {
                     "filterCategoryType": "LOCATION",
                     "filters": [
-                        {
-                            "filter": "United States",
-                            "subFilters": [
-                                {"filter": "District of Columbia", "subFilters": [{"filter": "Washington", "subFilters": []}]},
-                                {"filter": "Virginia", "subFilters": [{"filter": "McLean", "subFilters": []}]},
-                                {"filter": "New York", "subFilters": [{"filter": "New York", "subFilters": []}]},
-                                {"filter": "Massachusetts", "subFilters": [{"filter": "Boston", "subFilters": []}]},
-                                {"filter": "California", "subFilters": [{"filter": "San Francisco", "subFilters": []}]},
-                            ],
-                        }
+                        {"filter": "United States", "subFilters": []}
                     ],
                 },
             ],
@@ -708,10 +691,7 @@ _ORACLE_URL_PREFIX = (
     "ORGANIZATIONS%3BPOSTING_DATES%3BFLEX_FIELDS,"
 )
 _ORACLE_URL_SUFFIX = (
-    "lastSelectedFacet=AttributeChar13,"
     "locationId=300000000149325,"
-    "selectedCategoriesFacet=300000001559315%3B300000001917356,"
-    "selectedFlexFieldsFacets=%22AttributeChar6%7C0%20to%202%2B%20years%22,"
     "selectedLocationsFacet=300000000149325,"
     "selectedPostingDatesFacet=7,sortBy=POSTING_DATES_DESC"
 )
@@ -1282,8 +1262,10 @@ def normalize_goldman_item(item: Dict[str, Any]) -> Dict[str, str]:
     locs = item.get("locations") or []
     loc = "Unknown Location"
     if isinstance(locs, list) and locs:
-        first = locs[0] if isinstance(locs[0], dict) else {}
-        loc = first.get("primary") or make_location([first.get("city"), first.get("state"), first.get("country")])
+        # `primary` is a bool flag marking the primary location entry, not a location string.
+        dict_locs = [l for l in locs if isinstance(l, dict)]
+        chosen = next((l for l in dict_locs if l.get("primary")), dict_locs[0] if dict_locs else {})
+        loc = make_location([chosen.get("city"), chosen.get("state"), chosen.get("country")])
     role_id = str(item.get("roleId", ""))
     url = f"https://higher.gs.com/roles/{role_id}" if role_id else "https://higher.gs.com/results"
     return {
