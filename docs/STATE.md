@@ -4,7 +4,7 @@
 
 **As of 2026-07-12: external triggering via cron-job.org is DEAD and has been for 5+ weeks.** A health check found the last `workflow_dispatch` run was 2026-06-04 — every run since (76 of the last 100) has been `event=schedule`. The Jun 2 "verified in production" note below was accurate at the time but went stale silently; cron-job.org's own dashboard needs to be checked directly (this can't be diagnosed or fixed from the repo — it needs the account holder to log into cron-job.org and check job status/PAT rejection there). Worse, the GitHub-native fallback had *also* drifted from the documented `13 */3 * * *` sparse cadence down to a flat once-daily cron in both workflow files (`0 12 * * *` / `0 22 * * *`) — undocumented, cause unknown. Both workflow files have been restored to the `*/3h` fallback cadence (watcher `13 */3 * * *`, boards `43 */3 * * *`, offset to avoid both landing in the same slot) as of this commit. Real cadence until cron-job.org is fixed: every 3 hours, not every 10/30 min.
 
-Pipeline 1 (`--mode main`) polls Microsoft, NVIDIA, Amazon, Goldman Sachs, IBM, and Oracle. Pipeline 2 (`--mode boards`) sweeps ~1,200 ATS boards in batches of 200. `seen.json` holds 6,357 deduplicated job IDs; `seen_boards.json` holds 41,881.
+Pipeline 1 (`--mode main`) polls Microsoft, NVIDIA, Amazon, Goldman Sachs, IBM, and Oracle. Pipeline 2 (`--mode boards`) sweeps ~1,200 ATS boards in batches of 500 (raised from 200 on 2026-07-12 — see below). `seen.json` holds 6,357 deduplicated job IDs; `seen_boards.json` holds 41,881.
 
 ## Open bugs / issues
 
@@ -74,7 +74,7 @@ Plan: extract net-new GH/Lever (verified lists minus current 1,200, deduped by s
 Workday = cost driver (4–26 API calls/board, no cheap change-detection): defer to its own shard with small batch + app-level count caching; slower cycle acceptable.
 
 ### Measurement findings (2026-06-02, from run_log.json + watcher.py inspection)
-- **Huge headroom:** 200-board runs finish ~95s avg / 126s max of the 900s timeout (~14% used). Batch 200 is very conservative — adding boards need not hurt per-run latency if batch size scales up.
+- **Huge headroom:** 200-board runs finish ~95s avg / 126s max of the 900s timeout (~14% used). Raised to batch 500 on 2026-07-12 for exactly this reason — even at ~2.5x the extrapolated runtime (~240-315s) there's still large timeout margin.
 - **Per-board API cost:** GH = 1 GET; Lever = 1 GET; Ashby = 1 POST; SmartRecruiters = 1–5 GETs; Workday = 1 GET (boot) + 4–25 POSTs. Workday is "the clock."
 - **Observed throughput:** ~2.1 boards/sec average; ~18 boards/sec on no-Workday batches (cursor 1000–1200 slice, 0 WD boards, ran in 11.2s).
 - **Rate limits:** No throttling evidence from any boards platform at current load; 429s auto-retried transparently; only Goldman Sachs (main mode) threw 403s.
@@ -91,6 +91,7 @@ Net-new-by-platform count **not yet computed**: dedup vs. live 1,200 returned ze
 
 ## Recent changes
 
+- **2026-07-12** — Raised boards batch size 200 → 500 (`boards.yml`). User's actual goal isn't the original 10/30-min real-time cadence — it's guaranteeing a job posted in the last 24h reliably gets emailed within 24h. At batch 200, a full 1,200-board cycle needs 6 runs; on the restored 3h schedule that's ~18h ideal, but this repo's own documented GitHub cron slippage (previously measured median ~4.5h actual gap against a 10-min target) could stretch that to ~27h — over the 24h freshness window, meaning a real fresh job could get silently dropped (not late, just filtered out once past 24h old). Batch 500 cuts a full cycle to 3 runs (~1,200/500), giving real margin even under schedule slippage.
 - **2026-07-12** — Health check found cron-job.org external dispatch dead since ~2026-06-04 (silently fell back to GitHub `schedule:`, which had also drifted to a flat once-daily cron in both workflow files, cause unknown). Restored `*/3h` fallback cadence in both. Also fixed 3 verified bugs: Oracle facet over-narrowing (0 fetched), Goldman Sachs narrow filters + boolean/string field bug, and IBM location field bug (`field_keyword_17` is work-arrangement, not location — real city field is `field_keyword_19`, country fallback `field_keyword_05`). cron-job.org itself still needs the account holder to check its dashboard directly — not fixable from this repo.
 - **2026-06-04** - `feat: add --hours-fresh posted-date filter`. `watcher.py` now supports `--hours-fresh N` in both `main` and `boards` mode and filters jobs by parsed `posted` timestamps before test emails and alerts are built. Current behavior is strict: jobs without a parseable posted timestamp are excluded when freshness filtering is enabled.
 - **2026-06-04** - `feat: add local watcher config for email + title filters`. `watcher.py` now reads optional `watcher.local.json` (or `WATCHER_LOCAL_CONFIG`) for local email credentials and configurable title filters. Env vars still win for GitHub Actions. Added `watcher.local.example.json` and ignored `watcher.local.json` so local secrets and role tweaks do not get committed.
