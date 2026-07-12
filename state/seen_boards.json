@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-07-12T08:57:30.835319+00:00",
+  "updated_utc": "2026-07-12T11:02:49.614531+00:00",
   "seen_ids": [
     "ashby:1password:0e9a990d-5750-44c6-b399-887eae1fba49",
     "ashby:1password:0efcd7aa-0bcf-4c65-b7dd-627833d90f37",
@@ -9110,6 +9110,7 @@
     "greenhouse:pinterest:7770900",
     "greenhouse:pinterest:7770914",
     "greenhouse:pinterest:7770918",
+    "greenhouse:pinterest:7772875",
     "greenhouse:pinterest:7775686",
     "greenhouse:pinterest:7775690",
     "greenhouse:pinterest:7782229",
@@ -10234,6 +10235,7 @@
     "greenhouse:ruggedrobotics:4645832005",
     "greenhouse:ruggedrobotics:4675105005",
     "greenhouse:ruggedrobotics:4679268005",
+    "greenhouse:ruggedrobotics:4713982005",
     "greenhouse:salesloft:7905351",
     "greenhouse:salesloft:7950576",
     "greenhouse:samayaai:4648919007",
@@ -13750,6 +13752,7 @@
     "greenhouse:turing:5985549004",
     "greenhouse:turing:6007382004",
     "greenhouse:turing:6007383004",
+    "greenhouse:turing:6114235004",
     "greenhouse:twilio:7059734",
     "greenhouse:twilio:7061880",
     "greenhouse:twilio:7070250",
