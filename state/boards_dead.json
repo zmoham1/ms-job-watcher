@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-07-11T22:49:13.223032+00:00",
+  "updated_utc": "2026-07-12T08:57:30.869424+00:00",
   "boards_dead": [
     "ashby:contextual",
     "ashby:laminar",
@@ -89,6 +89,7 @@
     "greenhouse:confluent",
     "greenhouse:copper",
     "greenhouse:covariant",
+    "greenhouse:creditkarma",
     "greenhouse:crosscountrymortgage",
     "greenhouse:cruise",
     "greenhouse:crunchbase",
