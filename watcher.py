@@ -1346,11 +1346,16 @@ def normalize_ibm_hit(hit: Dict[str, Any]) -> Dict[str, str]:
     if not url:
         url = "https://www.ibm.com/careers/search"
     posted_str = src.get("dcdate") or ""
-    loc = src.get("field_keyword_17")
-    if isinstance(loc, list) and loc:
-        loc_str = str(loc[0])
-    elif isinstance(loc, str) and loc:
-        loc_str = loc
+    # field_keyword_17 is the work-arrangement field (Hybrid/Remote/On-site), not a location.
+    # field_keyword_19 is the real city field (e.g. "Cambridge, US"), but is sometimes a
+    # placeholder ("Multiple Cities"); field_keyword_05 is the country, guaranteed "United
+    # States" by IBM_PAYLOAD's post_filter, so it's a safe fallback.
+    city = src.get("field_keyword_19")
+    country = src.get("field_keyword_05")
+    if isinstance(city, str) and city and city != "Multiple Cities":
+        loc_str = city
+    elif isinstance(country, str) and country:
+        loc_str = country
     else:
         loc_str = "United States"
     return {

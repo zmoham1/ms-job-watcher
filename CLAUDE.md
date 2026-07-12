@@ -10,5 +10,4 @@ Automated job board alerter: polls 6 hardcoded company APIs + ~1,200 ATS boards 
 
 ## Working preferences
 
-- Show diffs before committing; pause for confirmation before making changes.
 - No `Co-Authored-By` trailers in commits.
