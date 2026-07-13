@@ -42,7 +42,13 @@ jobs:
           HTTP_TIMEOUT: '15'
           STATE_PATH: state/seen_boards.json
         run: |
-          python watcher.py --mode boards --boards-batch-size 500 --hours-fresh 24 --always-send-summary
+          ARGS="--mode boards --boards-batch-size 500 --hours-fresh 24"
+          HOUR=$(date -u +%H)
+          # 00 UTC = 8pm EDT, 12 UTC = 8am EDT: guaranteed summary emails, all other runs stay silent when nothing new is found.
+          if [ "$HOUR" = "00" ] || [ "$HOUR" = "12" ]; then
+            ARGS="$ARGS --always-send-summary"
+          fi
+          python watcher.py $ARGS
 
       - name: Commit updated state
         run: |

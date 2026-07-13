@@ -40,7 +40,13 @@ jobs:
           ALERT_TO_EMAIL: ${{ secrets.ALERT_TO_EMAIL }}
           HTTP_TIMEOUT: '30'
         run: |
-          python watcher.py --mode main --hours-fresh 24 --always-send-summary
+          ARGS="--mode main --hours-fresh 24"
+          HOUR=$(date -u +%H)
+          # 00 UTC = 8pm EDT, 12 UTC = 8am EDT: guaranteed summary emails, all other runs stay silent when nothing new is found.
+          if [ "$HOUR" = "00" ] || [ "$HOUR" = "12" ]; then
+            ARGS="$ARGS --always-send-summary"
+          fi
+          python watcher.py $ARGS
 
       - name: Commit updated state
         run: |
