@@ -1,7 +1,8 @@
 {
-  "updated_utc": "2026-07-14T08:57:31.678224+00:00",
+  "updated_utc": "2026-07-14T11:12:09.302935+00:00",
   "boards_dead": [
     "ashby:contextual",
+    "ashby:continue",
     "ashby:laminar",
     "ashby:machinify",
     "ashby:statsig",
