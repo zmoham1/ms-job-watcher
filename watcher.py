@@ -2299,17 +2299,22 @@ def main(
         normalized.extend(_oracle_norm)
         src_norm["oracle"] = _oracle_norm
 
-    filtered_normalized = [j for j in normalized if job_is_fresh_enough(j, hours_fresh)]
-    if hours_fresh is not None:
-        print(f"[FILTER] Freshness <= {hours_fresh}h kept {len(filtered_normalized)}/{len(normalized)} fetched jobs.")
-
-    eligible_normalized = [j for j in filtered_normalized if job_passes_eligibility_filters(j)]
-    if len(eligible_normalized) != len(filtered_normalized):
-        print(f"[FILTER] Eligibility text filter kept {len(eligible_normalized)}/{len(filtered_normalized)} fresh jobs.")
+    eligible_normalized = [j for j in normalized if job_passes_eligibility_filters(j)]
+    if len(eligible_normalized) != len(normalized):
+        print(f"[FILTER] Eligibility text filter kept {len(eligible_normalized)}/{len(normalized)} fetched jobs.")
 
     yes_matched = [j for j in eligible_normalized if classify_title(j.get("title", "")) == "yes"]
     maybe_matched = [j for j in eligible_normalized if classify_title(j.get("title", "")) == "maybe"]
     matched = yes_matched + maybe_matched
+
+    # Freshness only gates which matched jobs are eligible to be *emailed* this run. It must NOT
+    # narrow `matched`/`latest_keys` (used below for seen-state tracking) — otherwise a job that's
+    # already stale the first time it's fetched would never be marked seen, and would be silently
+    # re-evaluated (and re-missed) forever on every future run instead of just this one.
+    fresh_yes_matched = [j for j in yes_matched if job_is_fresh_enough(j, hours_fresh)]
+    fresh_maybe_matched = [j for j in maybe_matched if job_is_fresh_enough(j, hours_fresh)]
+    if hours_fresh is not None:
+        print(f"[FILTER] Freshness <= {hours_fresh}h kept {len(fresh_yes_matched) + len(fresh_maybe_matched)}/{len(matched)} matched jobs.")
 
     _per_source: Dict[str, Dict[str, Any]] = {}
     for _src in SUPPORTED_SOURCES:
@@ -2325,8 +2330,8 @@ def main(
         _per_source[_src] = _entry
 
     if test_email:
-        sample_yes = yes_matched[:2]
-        sample_maybe = maybe_matched[:1]
+        sample_yes = fresh_yes_matched[:2]
+        sample_maybe = fresh_maybe_matched[:1]
         if not (sample_yes or sample_maybe):
             raise RuntimeError("No matching jobs found to send in test email.")
         if no_email:
@@ -2370,8 +2375,10 @@ def main(
     for _src in SUPPORTED_SOURCES:
         _per_source[_src]["new"] = sum(1 for k in new_keys if k.startswith(_src + ":"))
 
-    new_yes = [j for j in yes_matched if j.get("key") in new_keys]
-    new_maybe = [j for j in maybe_matched if j.get("key") in new_keys]
+    fresh_keys = {j["key"] for j in (fresh_yes_matched + fresh_maybe_matched) if j.get("key")}
+    new_fresh_keys = new_keys & fresh_keys
+    new_yes = [j for j in fresh_yes_matched if j.get("key") in new_fresh_keys]
+    new_maybe = [j for j in fresh_maybe_matched if j.get("key") in new_fresh_keys]
 
     if new_yes or new_maybe:
         if no_email:
@@ -2475,11 +2482,16 @@ if __name__ == "__main__":
                 suppress_new_boards=not args.test_email,
             )
 
+            # `matched`/`latest_keys` (title+location+eligibility, NOT freshness-filtered) drive
+            # seen-state tracking below, so a job already stale the first time its board is swept
+            # still gets marked seen instead of being silently re-evaluated (and re-missed) on every
+            # future cycle forever. Freshness only gates which matches actually get emailed.
+            fresh_matched = matched
             if args.hours_fresh is not None:
                 pre_filter_count = len(matched)
-                matched = [j for j in matched if job_is_fresh_enough(j, args.hours_fresh)]
-                latest_keys = {j["key"] for j in matched if j.get("key")}
-                print(f"[FILTER] Freshness <= {args.hours_fresh}h kept {len(matched)}/{pre_filter_count} matched boards jobs.")
+                fresh_matched = [j for j in matched if job_is_fresh_enough(j, args.hours_fresh)]
+                print(f"[FILTER] Freshness <= {args.hours_fresh}h kept {len(fresh_matched)}/{pre_filter_count} matched boards jobs.")
+            fresh_keys = {j["key"] for j in fresh_matched if j.get("key")}
 
             if bootstrap_keys:
                 seen.update(bootstrap_keys)
@@ -2487,8 +2499,8 @@ if __name__ == "__main__":
                 boards_seen.update(bootstrap_boards)
 
             if args.test_email:
-                sample_yes = [j for j in matched if classify_title(j.get("title", "")) == "yes"][:2]
-                sample_maybe = [j for j in matched if classify_title(j.get("title", "")) == "maybe"][:1]
+                sample_yes = [j for j in fresh_matched if classify_title(j.get("title", "")) == "yes"][:2]
+                sample_maybe = [j for j in fresh_matched if classify_title(j.get("title", "")) == "maybe"][:1]
                 if not (sample_yes or sample_maybe):
                     raise RuntimeError("No matching jobs found to send in test email.")
                 if args.no_email:
@@ -2536,8 +2548,9 @@ if __name__ == "__main__":
                 if _plat in per_platform:
                     per_platform[_plat]["new"] = per_platform[_plat].get("new", 0) + 1
 
-            new_yes = [j for j in matched if classify_title(j.get("title", "")) == "yes" and j.get("key") in new_keys]
-            new_maybe = [j for j in matched if classify_title(j.get("title", "")) == "maybe" and j.get("key") in new_keys]
+            new_fresh_keys = new_keys & fresh_keys
+            new_yes = [j for j in fresh_matched if classify_title(j.get("title", "")) == "yes" and j.get("key") in new_fresh_keys]
+            new_maybe = [j for j in fresh_matched if classify_title(j.get("title", "")) == "maybe" and j.get("key") in new_fresh_keys]
 
             if new_yes or new_maybe:
                 if args.no_email:
