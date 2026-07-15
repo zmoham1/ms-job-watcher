@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-07-15T14:29:49.611474+00:00",
+  "updated_utc": "2026-07-15T16:55:37.671473+00:00",
   "boards_dead": [
     "ashby:contextual",
     "ashby:continue",
@@ -56,6 +56,7 @@
     "greenhouse:camunda",
     "greenhouse:canarytechnologies",
     "greenhouse:canvas",
+    "greenhouse:capitalrx",
     "greenhouse:capsulecares",
     "greenhouse:carbonhealth",
     "greenhouse:carecom",
