@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-07-15T03:51:10.376427+00:00",
+  "updated_utc": "2026-07-15T09:00:15.781294+00:00",
   "seen_ids": [
     "ashby:1password:0e9a990d-5750-44c6-b399-887eae1fba49",
     "ashby:1password:0efcd7aa-0bcf-4c65-b7dd-627833d90f37",
@@ -7832,6 +7832,7 @@
     "greenhouse:lucidmotors:5130478007",
     "greenhouse:lucidmotors:5131398007",
     "greenhouse:lucidmotors:5132450007",
+    "greenhouse:lucidmotors:5133673007",
     "greenhouse:lucidmotors:5135848007",
     "greenhouse:lucidmotors:5135856007",
     "greenhouse:lucidmotors:5135867007",
@@ -10035,6 +10036,7 @@
     "greenhouse:roboforce:5186999008",
     "greenhouse:roboforce:5226936008",
     "greenhouse:roboforce:5233632008",
+    "greenhouse:roboforce:5352789008",
     "greenhouse:rocketlab:6220973003",
     "greenhouse:rocketlab:6221021003",
     "greenhouse:rocketlab:6286833003",
@@ -12783,6 +12785,7 @@
     "greenhouse:stratacareers:7628719003",
     "greenhouse:stratacareers:7676247003",
     "greenhouse:stratacareers:7713878003",
+    "greenhouse:stratacareers:7804899003",
     "greenhouse:stripe:5601881",
     "greenhouse:stripe:6042172",
     "greenhouse:stripe:6163230",
@@ -15548,6 +15551,7 @@
     "lever:shieldai:277d8a41-6b43-4135-bbd1-86cd95189720",
     "lever:shieldai:28332c5d-703f-42e8-bb9b-ceafb14fb765",
     "lever:shieldai:29306b5d-7c93-4378-a63c-e2b726d80ef0",
+    "lever:shieldai:2f1b420a-125f-4b25-bf1d-0e8605932480",
     "lever:shieldai:37f1de6d-d17b-437b-af16-d8ce8d7d0782",
     "lever:shieldai:37fa20c1-57dc-4aa1-9515-ecc87f22f31b",
     "lever:shieldai:3b688ab2-7fd2-450b-86cc-eada11e06d66",
