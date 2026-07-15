@@ -1,7 +1,8 @@
 {
-  "updated_utc": "2026-07-13T17:40:33.309558+00:00",
+  "updated_utc": "2026-07-15T22:42:56.903367+00:00",
   "boards_dead": [
     "ashby:contextual",
+    "ashby:continue",
     "ashby:laminar",
     "ashby:machinify",
     "ashby:statsig",
@@ -55,6 +56,7 @@
     "greenhouse:camunda",
     "greenhouse:canarytechnologies",
     "greenhouse:canvas",
+    "greenhouse:capitalrx",
     "greenhouse:capsulecares",
     "greenhouse:carbonhealth",
     "greenhouse:carecom",
@@ -163,6 +165,7 @@
     "greenhouse:futureadvisor",
     "greenhouse:g2",
     "greenhouse:gainsight",
+    "greenhouse:galileofinancialtechnologies",
     "greenhouse:gartner",
     "greenhouse:gatekeeper",
     "greenhouse:geico",
