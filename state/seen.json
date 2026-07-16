@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-07-16T16:38:59.160077+00:00",
+  "updated_utc": "2026-07-16T19:32:25.096608+00:00",
   "seen_ids": [
     "amazon:0001a63d-f66e-4a08-9c9e-812ade17341b",
     "amazon:0033e86a-81db-4acd-ba64-5096f1379461",
@@ -616,6 +616,7 @@
     "amazon:39b99577-6b8f-4916-9ffd-fad94664a5c8",
     "amazon:39c3e1c1-5951-43e0-adcb-c70a8560ec46",
     "amazon:39eb12fa-5460-4701-b4ef-25fdadabd60e",
+    "amazon:39f5351f-de8a-4268-8029-8f0c6ca2e032",
     "amazon:3a2e8d82-5415-4400-82b4-216d64c3ff7c",
     "amazon:3a358e9b-ea7e-4e30-821f-449b4f2a1d2e",
     "amazon:3a3c1bcf-5daa-4f9b-b334-48b5da312b27",
@@ -792,6 +793,7 @@
     "amazon:492dc451-2cf9-40f3-b497-7846282bd5fa",
     "amazon:49725227-2bde-477f-b73f-a9cbb63dc35c",
     "amazon:4983c518-7bb2-42bd-a638-cf1cd8b5c106",
+    "amazon:4985295c-0052-43a8-98d9-2438fe1b6010",
     "amazon:498621f5-111e-4d46-be4e-2426c59c16e2",
     "amazon:49897c91-26cf-40e2-a4b3-b88f97d363b3",
     "amazon:49a39af6-fbf0-46ad-9b7e-701af314df76",
@@ -887,6 +889,7 @@
     "amazon:51c39832-bfc0-43c6-bf37-93af5bec647b",
     "amazon:51cceec4-31fe-4d2c-9c0a-dc6499f7fe06",
     "amazon:51eae7e0-22a8-4b9a-9fd7-ca35f2c1ecf3",
+    "amazon:51ffe363-5a9a-47cf-a80f-e0eea17cf1fd",
     "amazon:520e4221-5e69-40f4-ad76-3032d9b2964d",
     "amazon:522779bc-1406-4e5c-ae0c-b975858aaa3b",
     "amazon:526154c0-ff0d-4bf4-b945-6c36c646a499",
@@ -2028,6 +2031,7 @@
     "amazon:b74c9597-2e9d-4059-8169-18f343a97997",
     "amazon:b74e831d-a723-44ff-8071-1404547dd966",
     "amazon:b7759580-6fb8-4872-a725-b9cc1d4ff0f8",
+    "amazon:b77a90da-b622-4320-a7c3-5cf6cb1084cd",
     "amazon:b78e6b2d-d55a-4d20-9a79-a2a8b8bc0123",
     "amazon:b7a15562-8452-4562-b350-68c86366fcb6",
     "amazon:b7ad4278-333a-4760-ad80-3bdf6d19fb77",
@@ -2940,6 +2944,7 @@
     "amazon:ffdf9274-4349-46e7-9f4d-d403614af605",
     "amazon:ffff615b-44d9-4cee-9e5a-1e9e3611e566",
     "goldman_sachs:125649_GS_MID_CAREER",
+    "goldman_sachs:139331_GS_MID_CAREER",
     "goldman_sachs:153199_GS_MID_CAREER",
     "goldman_sachs:154096_GS_MID_CAREER",
     "goldman_sachs:154116_GS_MID_CAREER",
@@ -6854,6 +6859,9 @@
     "oracle:339911",
     "oracle:339924",
     "oracle:339942",
-    "oracle:340062"
+    "oracle:340062",
+    "oracle:340091",
+    "oracle:340113",
+    "oracle:340118"
   ]
 }
