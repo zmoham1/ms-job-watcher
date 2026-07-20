@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-07-20T20:15:13.230208+00:00",
+  "updated_utc": "2026-07-20T22:38:58.603592+00:00",
   "seen_ids": [
     "ashby:1password:0e9a990d-5750-44c6-b399-887eae1fba49",
     "ashby:1password:0efcd7aa-0bcf-4c65-b7dd-627833d90f37",
@@ -6174,6 +6174,7 @@
     "greenhouse:darkwolfsolutions:7748609003",
     "greenhouse:darkwolfsolutions:7782166003",
     "greenhouse:darkwolfsolutions:7784246003",
+    "greenhouse:darkwolfsolutions:7810005003",
     "greenhouse:databricks:7882009002",
     "greenhouse:databricks:7932280002",
     "greenhouse:databricks:8024010002",
@@ -7042,6 +7043,7 @@
     "greenhouse:figureai:4696349006",
     "greenhouse:figureai:4696350006",
     "greenhouse:figureai:4696533006",
+    "greenhouse:figureai:4697402006",
     "greenhouse:fivetran:6570492003",
     "greenhouse:fivetran:6598497003",
     "greenhouse:fivetran:6664139003",
@@ -8232,6 +8234,7 @@
     "greenhouse:lucidmotors:5139494007",
     "greenhouse:lucidmotors:5140876007",
     "greenhouse:lucidmotors:5172201007",
+    "greenhouse:lucidmotors:5175127007",
     "greenhouse:lumosfiber:5099047008",
     "greenhouse:lumosfiber:5215034008",
     "greenhouse:lumosfiber:5257545008",
