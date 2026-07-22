@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-07-22T11:17:13.532430+00:00",
+  "updated_utc": "2026-07-22T14:19:10.259602+00:00",
   "seen_ids": [
     "amazon:0001a63d-f66e-4a08-9c9e-812ade17341b",
     "amazon:0033e86a-81db-4acd-ba64-5096f1379461",
@@ -6963,6 +6963,7 @@
     "oracle:334432",
     "oracle:334471",
     "oracle:334579",
+    "oracle:334821",
     "oracle:335189",
     "oracle:335774",
     "oracle:335866",
@@ -7015,12 +7016,14 @@
     "oracle:340252",
     "oracle:340279",
     "oracle:340401",
+    "oracle:340492",
     "oracle:340590",
     "oracle:340610",
     "oracle:340614",
     "oracle:340627",
     "oracle:340684",
     "oracle:340685",
+    "oracle:340711",
     "oracle:340713"
   ]
 }
