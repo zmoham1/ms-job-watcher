@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-07-23T20:03:31.235670+00:00",
+  "updated_utc": "2026-07-23T22:38:23.250174+00:00",
   "seen_ids": [
     "ashby:1password:0e9a990d-5750-44c6-b399-887eae1fba49",
     "ashby:1password:0efcd7aa-0bcf-4c65-b7dd-627833d90f37",
@@ -456,6 +456,7 @@
     "ashby:formenergy:ea1979b4-c6ef-4902-aedf-2990874a4390",
     "ashby:formenergy:ee3cbe4b-a59e-4dda-932a-7bbaca9f5d81",
     "ashby:formenergy:ee3f3edb-5262-4a12-ad28-3461d64d744f",
+    "ashby:formenergy:ee7663de-9d75-4f68-8f0f-fce336350b85",
     "ashby:formenergy:f1fd3b2c-7942-40b6-94f4-d616338a0201",
     "ashby:formenergy:f8858e93-2080-4b01-a7c4-01d17543f14e",
     "ashby:formenergy:f9310f61-6e9f-448a-909f-d0eada2078e9",
@@ -4176,6 +4177,7 @@
     "greenhouse:antora:6026868004",
     "greenhouse:antora:6100951004",
     "greenhouse:antora:6114994004",
+    "greenhouse:antora:6118945004",
     "greenhouse:appliedintuition:4044661005",
     "greenhouse:appliedintuition:4044945005",
     "greenhouse:appliedintuition:4045071005",
@@ -7075,6 +7077,7 @@
     "greenhouse:figureai:4596416006",
     "greenhouse:figureai:4596418006",
     "greenhouse:figureai:4602225006",
+    "greenhouse:figureai:4603840006",
     "greenhouse:figureai:4609306006",
     "greenhouse:figureai:4612612006",
     "greenhouse:figureai:4612710006",
@@ -8323,6 +8326,7 @@
     "greenhouse:lucidmotors:5140876007",
     "greenhouse:lucidmotors:5172201007",
     "greenhouse:lucidmotors:5175127007",
+    "greenhouse:lucidmotors:5194178007",
     "greenhouse:lumosfiber:5099047008",
     "greenhouse:lumosfiber:5215034008",
     "greenhouse:lumosfiber:5257545008",
