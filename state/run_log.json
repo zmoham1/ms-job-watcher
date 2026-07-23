@@ -20730,5 +20730,34 @@
     },
     "duration_s": 23.1,
     "cursor": null
+  },
+  {
+    "ts": "2026-07-23T14:53Z",
+    "mode": "boards",
+    "per_source": {
+      "ashby": {
+        "fetched": 1920,
+        "title_ok": 446,
+        "loc_ok": 158,
+        "new": 0,
+        "emailed": 0
+      },
+      "greenhouse": {
+        "fetched": 4263,
+        "title_ok": 857,
+        "loc_ok": 500,
+        "new": 0,
+        "emailed": 0
+      },
+      "lever": {
+        "fetched": 1587,
+        "title_ok": 537,
+        "loc_ok": 223,
+        "new": 1,
+        "emailed": 1
+      }
+    },
+    "duration_s": 6.4,
+    "cursor": 0
   }
 ]
