@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-07-23T03:39:21.010178+00:00",
+  "updated_utc": "2026-07-23T08:43:24.717209+00:00",
   "seen_ids": [
     "amazon:0001a63d-f66e-4a08-9c9e-812ade17341b",
     "amazon:0033e86a-81db-4acd-ba64-5096f1379461",
@@ -896,6 +896,7 @@
     "amazon:4de70f3d-59ac-46a8-92f0-8458b49ba687",
     "amazon:4df5dc8b-7644-44c8-92c3-6272cfd62f48",
     "amazon:4df7e358-44a5-4a64-9e9b-6ab3ace7bee6",
+    "amazon:4e21b160-961d-42df-949a-53e82457bbec",
     "amazon:4e242e24-19ff-4301-a98a-5fab2b67c736",
     "amazon:4e254ccb-c1e5-40e4-a9e6-e3513bc30aa9",
     "amazon:4e408647-56df-4c5f-9e82-f9a3ea21f8c0",
@@ -1162,6 +1163,7 @@
     "amazon:65462a6f-a70a-4d00-b3cc-ff1a19016a0a",
     "amazon:657c1880-c34e-493a-9314-893b9da5ea7d",
     "amazon:65abbe49-e786-4c0f-a417-cb112df8f60d",
+    "amazon:65cb65b0-06e3-41cb-a8fd-b7d8fbce3865",
     "amazon:66170e2c-89f8-4835-8354-ec61822855dd",
     "amazon:6627da14-3306-46d7-84bf-fd8b148c83fd",
     "amazon:66299f18-ed54-4a11-85bb-961d3a608d27",
@@ -7068,6 +7070,8 @@
     "oracle:340713",
     "oracle:340781",
     "oracle:340796",
-    "oracle:340803"
+    "oracle:340803",
+    "oracle:340844",
+    "oracle:340845"
   ]
 }
