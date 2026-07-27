@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-07-27T04:30:38.995405+00:00",
+  "updated_utc": "2026-07-27T10:32:08.473942+00:00",
   "boards_dead": [
     "ashby:contextual",
     "ashby:continue",
@@ -776,6 +776,7 @@
     "greenhouse:zxventures",
     "greenhouse:zymergen",
     "greenhouse:zynga",
+    "lever:Rarible",
     "lever:accenture",
     "lever:adobe",
     "lever:applovin",
