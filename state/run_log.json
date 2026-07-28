@@ -23420,5 +23420,55 @@
     },
     "duration_s": 12.2,
     "cursor": 0
+  },
+  {
+    "ts": "2026-07-28T03:30Z",
+    "mode": "main",
+    "per_source": {
+      "microsoft": {
+        "fetched": 173,
+        "title_ok": 27,
+        "loc_ok": 27,
+        "new": 0,
+        "emailed": 0
+      },
+      "amazon": {
+        "fetched": 300,
+        "title_ok": 261,
+        "loc_ok": 261,
+        "new": 9,
+        "emailed": 0
+      },
+      "nvidia": {
+        "fetched": 220,
+        "title_ok": 27,
+        "loc_ok": 27,
+        "new": 0,
+        "emailed": 0
+      },
+      "goldman_sachs": {
+        "fetched": 65,
+        "title_ok": 22,
+        "loc_ok": 22,
+        "new": 0,
+        "emailed": 0
+      },
+      "ibm": {
+        "fetched": 2,
+        "title_ok": 1,
+        "loc_ok": 1,
+        "new": 0,
+        "emailed": 0
+      },
+      "oracle": {
+        "fetched": 178,
+        "title_ok": 38,
+        "loc_ok": 38,
+        "new": 4,
+        "emailed": 0
+      }
+    },
+    "duration_s": 25.4,
+    "cursor": null
   }
 ]
