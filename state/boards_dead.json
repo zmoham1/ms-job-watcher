@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-07-30T14:54:39.844445+00:00",
+  "updated_utc": "2026-07-30T17:12:47.343054+00:00",
   "boards_dead": [
     "ashby:contextual",
     "ashby:continue",
@@ -319,6 +319,7 @@
     "greenhouse:mural",
     "greenhouse:mutiny",
     "greenhouse:mx",
+    "greenhouse:natera",
     "greenhouse:nebulagenomics",
     "greenhouse:nec",
     "greenhouse:neon",
