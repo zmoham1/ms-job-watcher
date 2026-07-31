@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-07-31T11:47:51.549442+00:00",
+  "updated_utc": "2026-07-31T15:13:23.352234+00:00",
   "boards_dead": [
     "ashby:contextual",
     "ashby:continue",
@@ -90,6 +90,7 @@
     "greenhouse:compass",
     "greenhouse:confluent",
     "greenhouse:copper",
+    "greenhouse:coursera",
     "greenhouse:covariant",
     "greenhouse:creditkarma",
     "greenhouse:crosscountrymortgage",
@@ -302,6 +303,7 @@
     "greenhouse:mic",
     "greenhouse:microstrategy",
     "greenhouse:midigator",
+    "greenhouse:mindsdb",
     "greenhouse:mindtickle",
     "greenhouse:mirantis",
     "greenhouse:modaoperandi",
