@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-08-01T16:37:21.723832+00:00",
+  "updated_utc": "2026-08-01T19:58:09.265014+00:00",
   "seen_ids": [
     "ashby:1password:0e9a990d-5750-44c6-b399-887eae1fba49",
     "ashby:1password:0efcd7aa-0bcf-4c65-b7dd-627833d90f37",
@@ -38491,6 +38491,7 @@
     "workday:leidos:External:req:R-00184831",
     "workday:leidos:External:req:R-00184851",
     "workday:leidos:External:req:R-00185007",
+    "workday:leidos:External:req:R-00185023",
     "workday:leidos:External:req:R-00185146",
     "workday:leidos:External:req:R-00185232",
     "workday:leidos:External:req:R-00185240",
@@ -38510,6 +38511,7 @@
     "workday:leidos:External:req:R-00185724",
     "workday:leidos:External:req:R-00185734",
     "workday:leidos:External:req:R-00185784",
+    "workday:leidos:External:req:R-00185806",
     "workday:leidos:External:req:R-00185809",
     "workday:leidos:External:req:R-00185831",
     "workday:leidos:External:req:R-00185850",
@@ -44268,6 +44270,7 @@
     "workday:ngc:Northrop_Grumman_External_Site:req:R10243213",
     "workday:ngc:Northrop_Grumman_External_Site:req:R10243269",
     "workday:ngc:Northrop_Grumman_External_Site:req:R10243303",
+    "workday:ngc:Northrop_Grumman_External_Site:req:R10243305",
     "workday:ngc:Northrop_Grumman_External_Site:url:https://ngc.wd1.myworkdayjobs.com/en-US/Northrop_Grumman_External_Site/job/US-Expat---P754-Australia-Alice-Springs/Digital-Hardware-Engineer---2-3--Alice-Springs-Australia-_R10224364",
     "workday:ngc:Northrop_Grumman_External_Site:url:https://ngc.wd1.myworkdayjobs.com/en-US/Northrop_Grumman_External_Site/job/US-Expat---P754-Australia-Alice-Springs/Electro-Mechanical-Calibration-Engineer---2-3--Alice-Springs-AU-_R10224370",
     "workday:ngc:Northrop_Grumman_External_Site:url:https://ngc.wd1.myworkdayjobs.com/en-US/Northrop_Grumman_External_Site/job/US-Expat---P754-Australia-Alice-Springs/Electro-Mechanical-Calibration-Engineer---2-3--Alice-Springs-Australia-_R10224368",
