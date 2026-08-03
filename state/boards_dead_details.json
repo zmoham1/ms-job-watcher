@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-08-03T17:33:29.369527+00:00",
+  "updated_utc": "2026-08-03T20:20:46.095557+00:00",
   "dead_details": {
     "greenhouse:auth0": {
       "first_seen_utc": "2026-02-16T03:03:47.356270+00:00",
@@ -8509,6 +8509,15 @@
     "greenhouse:mindsdb": {
       "first_seen_utc": "2026-07-31T15:11:55.558833+00:00",
       "last_seen_utc": "2026-07-31T15:11:55.558833+00:00",
+      "platform": "greenhouse",
+      "company": "",
+      "board_url": "",
+      "last_status": 404,
+      "last_error": "HTTP 404/410 (board not found)"
+    },
+    "greenhouse:tekion": {
+      "first_seen_utc": "2026-08-03T20:18:20.248672+00:00",
+      "last_seen_utc": "2026-08-03T20:18:20.248672+00:00",
       "platform": "greenhouse",
       "company": "",
       "board_url": "",
