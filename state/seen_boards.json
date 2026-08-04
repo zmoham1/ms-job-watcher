@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-08-04T09:31:57.449694+00:00",
+  "updated_utc": "2026-08-04T11:48:48.563473+00:00",
   "seen_ids": [
     "ashby:1password:0e9a990d-5750-44c6-b399-887eae1fba49",
     "ashby:1password:0efcd7aa-0bcf-4c65-b7dd-627833d90f37",
@@ -542,6 +542,7 @@
     "ashby:langchain:ddf92275-1cc3-49c0-9f25-e8ded43b07f6",
     "ashby:langchain:dea6e10a-5cc8-4956-85b4-1ca88b8c0a95",
     "ashby:langchain:defd4191-7a83-464c-a297-91ebd52981e1",
+    "ashby:langchain:dfbba971-a7e2-4feb-a0d9-8e38a1155134",
     "ashby:langchain:e1263bfe-b638-4019-b4d5-0aacca93b2b3",
     "ashby:langchain:e725293d-c27b-4a79-959d-19f5618f2f8e",
     "ashby:langchain:e773649c-4ea7-47c2-9987-74d525474e82",
@@ -16507,6 +16508,7 @@
     "lever:oowlish:d9d06087-9da4-4773-856e-371c746683f3",
     "lever:openx:5f36d307-1d49-4591-a203-8fb6ea9c10d5",
     "lever:openx:7317553b-55af-4e24-aff5-e620f54f2950",
+    "lever:openx:76945c66-dfbc-4902-bd67-7f38d8fc1214",
     "lever:openx:d7d9cf6e-d229-41ee-8157-80cde557f829",
     "lever:palantir:02fe0b60-6fc4-46dd-b0e3-e0d3da3aaa4d",
     "lever:palantir:0a838e66-1ab0-4fc4-b4d3-4671c0352278",
