@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-08-06T03:54:19.127489+00:00",
+  "updated_utc": "2026-08-06T09:33:49.072494+00:00",
   "boards_dead": [
     "ashby:contextual",
     "ashby:continue",
@@ -11,6 +11,7 @@
     "greenhouse:abridge",
     "greenhouse:ada",
     "greenhouse:addepar",
+    "greenhouse:aerospike",
     "greenhouse:agentsync",
     "greenhouse:agora",
     "greenhouse:airbyte",
