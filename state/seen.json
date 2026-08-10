@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-08-10T16:07:51.181830+00:00",
+  "updated_utc": "2026-08-10T19:12:16.424396+00:00",
   "seen_ids": [
     "amazon:0001a63d-f66e-4a08-9c9e-812ade17341b",
     "amazon:002bb768-9bfa-483c-8265-7220b51959b7",
@@ -57,6 +57,7 @@
     "amazon:0345002b-1858-4001-8e4d-d5405f37f9d3",
     "amazon:0351f1a8-6a98-4dcf-8148-9f31bc63e3c9",
     "amazon:0371ac9b-13ab-4eca-ac48-1e648ae6cd15",
+    "amazon:0396ab19-0539-45fd-9812-904b53898dd3",
     "amazon:03c78896-4ef7-4b7b-876e-6a0f8774bbcf",
     "amazon:03cb380d-2cd9-4ec6-a3eb-96cf1d3a7a67",
     "amazon:03dbd779-818b-45ae-aa95-73becb72dc0e",
@@ -522,6 +523,7 @@
     "amazon:297b03f7-0444-4eee-a145-de6b1520ffc6",
     "amazon:2985da74-6063-4c9c-a276-c3305c93a41d",
     "amazon:29a09672-d762-43a1-af13-c1fe80776477",
+    "amazon:29b4fbaa-8e43-4e8d-88aa-f4a6730b02a6",
     "amazon:29b57fdf-6dee-4158-bb9b-a1b24e8a1619",
     "amazon:29bffa38-0618-4abc-96ff-73dffe21d446",
     "amazon:29c085d7-0c93-4ceb-a7a1-3b8b63b076c9",
@@ -732,6 +734,7 @@
     "amazon:39894f57-e9b4-4abe-b3fd-93c64a0dad89",
     "amazon:3990283c-0dce-4f9d-9c07-0f0a163c26f8",
     "amazon:39993337-376d-41e1-b1f9-c425744d5efb",
+    "amazon:399df452-9485-477c-9d02-85d81234038d",
     "amazon:39a4d303-37b8-4659-a51d-a667ed6fc9bc",
     "amazon:39b99577-6b8f-4916-9ffd-fad94664a5c8",
     "amazon:39c3e1c1-5951-43e0-adcb-c70a8560ec46",
@@ -1193,6 +1196,7 @@
     "amazon:5c94e584-2d1e-4e01-afbd-108927798fe5",
     "amazon:5cd1c305-6859-4bc6-9eaa-78377e636232",
     "amazon:5cff3b18-0e8a-4bcc-95ad-fef1d787f10d",
+    "amazon:5d288648-a764-4959-96a4-3ccb2a2cd7b8",
     "amazon:5d2a395b-5528-4e89-92a8-c3ae116bae5b",
     "amazon:5d2d5216-31a2-4dce-b36d-d9b7b27f73d9",
     "amazon:5d43c1e4-c66f-4d7c-80f2-4605a714f338",
@@ -1215,6 +1219,7 @@
     "amazon:5ef11f43-9752-4bf1-a668-18781bd4629e",
     "amazon:5ef9317c-326f-4ea1-afd9-ac708611b4a4",
     "amazon:5f11ae7d-478d-47a4-afdf-8121b91c3af5",
+    "amazon:5f1ca5b7-ae5f-4f73-a739-e79c310f88d9",
     "amazon:5f32721e-7434-4f31-9fc7-809bd7ab1100",
     "amazon:5f4d45ec-fbca-4a6d-ac16-9160478420b5",
     "amazon:5f4df84f-678a-4423-bebb-ff409ed738b6",
@@ -1259,6 +1264,7 @@
     "amazon:62916127-e726-4d43-ae08-22e2cddce9c9",
     "amazon:62987a80-42a0-4fa8-b2fb-865949a7b4b2",
     "amazon:62b99ae3-3f26-411c-85b4-67f9120015bc",
+    "amazon:62bb298b-0aa1-4aff-83e9-9d58e1b315c9",
     "amazon:62d8e28a-d0da-4b64-8d8b-a5307c7eedea",
     "amazon:62efa14e-cb21-45de-a818-74f66944bb07",
     "amazon:62f14bd7-e004-4e61-b354-c9ecea220085",
@@ -1280,6 +1286,7 @@
     "amazon:640360f9-3d5f-45c0-8f34-42479e7d117a",
     "amazon:640646c4-2d32-4522-911f-8a688bfca663",
     "amazon:641279cb-a705-4c96-a9c5-43f2f8056993",
+    "amazon:641fa4cb-aea9-40a2-9be3-b878c463a751",
     "amazon:642292db-5d7c-4d0a-88ad-7bc5d8609a73",
     "amazon:64320ffc-029d-45fc-b7c0-9062d4668bf9",
     "amazon:6462dfee-634b-460d-8295-3bfc5c66ee42",
@@ -2354,6 +2361,7 @@
     "amazon:b3ebed19-9e81-494d-ba7a-683a070666fc",
     "amazon:b3f1efc4-0999-4cc1-9b30-1dcfb1627932",
     "amazon:b3fc207f-21f9-4d0b-ab39-86b7faadb8e8",
+    "amazon:b402326e-3af4-4e2d-a9c3-87713373570a",
     "amazon:b404536e-e87b-4246-bdc5-d4b91cc249d7",
     "amazon:b412c443-5f46-4aa1-ab95-83117b24adfe",
     "amazon:b4271bce-4839-4ce6-b82d-5d899459ed16",
@@ -2546,6 +2554,7 @@
     "amazon:c083109d-b12c-44ac-92a7-95d4ec56d962",
     "amazon:c09658a2-785c-42ee-b5d4-c6a36db644da",
     "amazon:c0a21d74-24dc-4955-8abc-81def14c622b",
+    "amazon:c0b05f52-a50e-4590-951b-bad336d57a40",
     "amazon:c0c1821c-e7e3-4f9f-9e8f-18fd0bf0154c",
     "amazon:c0c71913-d19d-41ae-8e12-79bf4b4d2542",
     "amazon:c0def194-5d67-49b0-ac27-95c30bf49ee7",
@@ -7604,6 +7613,7 @@
     "oracle:342260",
     "oracle:342261",
     "oracle:342263",
-    "oracle:342266"
+    "oracle:342266",
+    "oracle:342268"
   ]
 }
