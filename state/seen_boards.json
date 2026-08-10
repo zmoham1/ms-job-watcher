@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-08-10T08:20:26.240160+00:00",
+  "updated_utc": "2026-08-10T10:49:49.648256+00:00",
   "seen_ids": [
     "ashby:1password:0e9a990d-5750-44c6-b399-887eae1fba49",
     "ashby:1password:0efcd7aa-0bcf-4c65-b7dd-627833d90f37",
@@ -345,6 +345,7 @@
     "ashby:eightsleep:e23f8002-ffc8-49b6-b44e-2f14f27b6159",
     "ashby:elevenlabs:275f43d0-b62d-401d-830c-7c1ac0e688aa",
     "ashby:elevenlabs:3a75a63b-5f28-4688-9963-d9607e21ae67",
+    "ashby:elevenlabs:3eede250-d2a7-4f13-b0b2-d8a530cb6130",
     "ashby:elevenlabs:4509df6f-b839-44d6-b31f-d7f364cec949",
     "ashby:elevenlabs:87edb030-4d51-428a-8dd0-837733ca07e9",
     "ashby:elevenlabs:8c068ebf-c79f-4f12-97ef-b4c9a4f7ae5f",
@@ -19122,6 +19123,7 @@
     "smartrecruiters:ServiceNow:744000141813872",
     "smartrecruiters:ServiceNow:744000142013444",
     "smartrecruiters:ServiceNow:744000142014199",
+    "smartrecruiters:ServiceNow:744000142559890",
     "smartrecruiters:Slack2:743999931040577",
     "smartrecruiters:Tyco:111331183",
     "smartrecruiters:Tyco:111331399",
@@ -48190,6 +48192,7 @@
     "workday:oshkoshcorporation:Oshkosh:req:R48965",
     "workday:oshkoshcorporation:Oshkosh:req:R48968",
     "workday:oshkoshcorporation:Oshkosh:req:R49007",
+    "workday:oshkoshcorporation:Oshkosh:req:R49021",
     "workday:oshkoshcorporation:Oshkosh:req:R49108",
     "workday:oshkoshcorporation:Oshkosh:url:https://oshkoshcorporation.wd5.myworkdayjobs.com/en-US/Oshkosh/job/Appleton-Wisconsin-United-States/Chief-Manufacturing-Engineer_R39874",
     "workday:oshkoshcorporation:Oshkosh:url:https://oshkoshcorporation.wd5.myworkdayjobs.com/en-US/Oshkosh/job/Appleton-Wisconsin-United-States/Controls-Engineer_R43615",
