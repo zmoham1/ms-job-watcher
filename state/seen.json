@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-08-10T13:38:48.943368+00:00",
+  "updated_utc": "2026-08-10T16:07:51.181830+00:00",
   "seen_ids": [
     "amazon:0001a63d-f66e-4a08-9c9e-812ade17341b",
     "amazon:002bb768-9bfa-483c-8265-7220b51959b7",
@@ -97,6 +97,7 @@
     "amazon:06bf33bf-a4ad-42fd-be20-fc4ace3318f5",
     "amazon:06d7023b-a6dc-496e-8454-e30320959d8c",
     "amazon:06db6dec-f2b6-44f3-af9a-69275fdec8e8",
+    "amazon:070a3583-7ee6-4037-ba44-e0298e1cefa5",
     "amazon:070f4d64-c143-42d1-8315-d33d3763d37c",
     "amazon:0723317e-5c5c-4add-8da1-dfaa74a796b3",
     "amazon:073f87eb-e69d-4832-9436-7a835a560dba",
@@ -569,6 +570,7 @@
     "amazon:2dbe097e-cd44-44b8-99ce-31fdcc1f19d8",
     "amazon:2dc50da4-96d8-4819-9c7d-49a077b83e80",
     "amazon:2dc92e40-f030-4436-98ff-b4b0a52786ff",
+    "amazon:2dd1b1a2-c738-4677-9180-8ad37bd9828d",
     "amazon:2dfbbbf8-6445-41c9-b91b-0eb42e8b8b9c",
     "amazon:2dfbe947-134e-47b8-8596-e4dcc5c48ff6",
     "amazon:2dfda6a9-28df-4282-b4ff-a718323d3a5d",
@@ -1293,6 +1295,7 @@
     "amazon:652dbd01-30d4-4a93-9192-a1611df7f2bc",
     "amazon:65431a6d-a9a5-440c-96b7-e8725057171f",
     "amazon:65462a6f-a70a-4d00-b3cc-ff1a19016a0a",
+    "amazon:6548fa5d-39be-467f-bb1f-8c357c39740a",
     "amazon:657c1880-c34e-493a-9314-893b9da5ea7d",
     "amazon:659c8df8-733e-42e9-82db-73b4835f5fb4",
     "amazon:65abbe49-e786-4c0f-a417-cb112df8f60d",
@@ -1609,6 +1612,7 @@
     "amazon:7cf8fdf5-5724-4ec8-a481-48d509e239c3",
     "amazon:7cfb7d16-293c-426e-89a5-c27c9d05866d",
     "amazon:7d00ca56-f6cc-452b-ae36-946d93d8a16a",
+    "amazon:7d0c20c7-22ee-4aff-a6c1-178fb9c2b0f9",
     "amazon:7d1bca5b-1208-4ded-acb2-dd50c0c1ba1d",
     "amazon:7d266fae-84f5-44cf-98ca-ad85a643b729",
     "amazon:7d65ab33-2c34-4fe0-ab6f-156654f8d9c1",
@@ -2008,6 +2012,7 @@
     "amazon:99fcadd7-db1c-43c6-afcd-acb170607949",
     "amazon:9a168a9f-b566-489e-906b-303686fc15b4",
     "amazon:9a3baf27-e3f7-46bc-9f04-9ecfc9540c91",
+    "amazon:9a4cc9a4-6dbd-4d8c-83d6-3d8db800db60",
     "amazon:9a596680-5019-4f55-b129-520002359c32",
     "amazon:9a605dd0-dd07-443e-9c94-52dd2828f99a",
     "amazon:9a6fda8a-a4c0-4787-83d3-a594882ab656",
@@ -7541,6 +7546,7 @@
     "oracle:341260",
     "oracle:341275",
     "oracle:341328",
+    "oracle:341332",
     "oracle:341449",
     "oracle:341471",
     "oracle:341482",
@@ -7594,6 +7600,10 @@
     "oracle:342114",
     "oracle:342157",
     "oracle:342200",
-    "oracle:342202"
+    "oracle:342202",
+    "oracle:342260",
+    "oracle:342261",
+    "oracle:342263",
+    "oracle:342266"
   ]
 }
