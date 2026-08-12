@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-08-12T05:22:28.257516+00:00",
+  "updated_utc": "2026-08-12T08:06:26.018570+00:00",
   "seen_ids": [
     "ashby:1password:0e9a990d-5750-44c6-b399-887eae1fba49",
     "ashby:1password:0efcd7aa-0bcf-4c65-b7dd-627833d90f37",
@@ -19215,6 +19215,7 @@
     "smartrecruiters:ServiceNow:744000142691299",
     "smartrecruiters:ServiceNow:744000142725349",
     "smartrecruiters:ServiceNow:744000142923140",
+    "smartrecruiters:ServiceNow:744000143029419",
     "smartrecruiters:Slack2:743999931040577",
     "smartrecruiters:Tyco:111331183",
     "smartrecruiters:Tyco:111331399",
@@ -49243,6 +49244,7 @@
     "workday:target:targetcareers:req:R0000447426",
     "workday:target:targetcareers:req:R0000448039",
     "workday:target:targetcareers:req:R0000448527",
+    "workday:target:targetcareers:req:R0000448612",
     "workday:target:targetcareers:req:R0000448660",
     "workday:target:targetcareers:req:R0000448788",
     "workday:target:targetcareers:req:R0000448789",
@@ -49702,6 +49704,7 @@
     "workday:workday:Workday:req:JR-0108945",
     "workday:workday:Workday:req:JR-0108946",
     "workday:workday:Workday:req:JR-0109130",
+    "workday:workday:Workday:req:JR-0109153",
     "workday:workday:Workday:url:https://workday.wd5.myworkdayjobs.com/en-US/Workday/job/USA-CA-Pleasanton/People-Analytics-Data-Scientist_JR-0104261-1",
     "workday:workday:Workday:url:https://workday.wd5.myworkdayjobs.com/en-US/Workday/job/USA-CA-Pleasanton/Principal-Machine-Learning-Engineer_JR-0104012",
     "workday:workday:Workday:url:https://workday.wd5.myworkdayjobs.com/en-US/Workday/job/USA-CA-Pleasanton/Principal-Machine-Learning-Engineer_JR-0104014",
