@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-08-14T14:04:53.964821+00:00",
+  "updated_utc": "2026-08-14T16:32:17.275016+00:00",
   "seen_ids": [
     "ashby:1password:0e9a990d-5750-44c6-b399-887eae1fba49",
     "ashby:1password:0efcd7aa-0bcf-4c65-b7dd-627833d90f37",
@@ -532,6 +532,7 @@
     "ashby:langchain:38947013-3d0c-4257-aa58-ab8fe247ea3e",
     "ashby:langchain:3e31c750-67f2-4d3d-ac29-48a2b57cf4bd",
     "ashby:langchain:3f793a73-9b0d-456b-9a7c-16441e3e6e69",
+    "ashby:langchain:47a3bc2a-2bed-4d61-b1de-b3d7ec211a08",
     "ashby:langchain:60884cbf-4849-4526-9f59-17de63535958",
     "ashby:langchain:60d3bd4f-e80f-45fb-9801-725d8b681d54",
     "ashby:langchain:6f32998b-111c-447b-b593-2b64c7de245d",
@@ -7600,6 +7601,7 @@
     "greenhouse:freedomconsulting:5189747007",
     "greenhouse:freedomconsulting:5189780007",
     "greenhouse:freedomconsulting:5195762007",
+    "greenhouse:freedomconsulting:5212186007",
     "greenhouse:freeformfuturecorp:6693521003",
     "greenhouse:freeformfuturecorp:6853937003",
     "greenhouse:freeformfuturecorp:7631560003",
@@ -16802,6 +16804,7 @@
     "lever:lendbuzz:492d25b7-45e7-4ccb-9ba9-c2dab3812fd0",
     "lever:lendbuzz:93c0a50a-f9a6-40a1-a97f-b39d8f1b6656",
     "lever:lendbuzz:c2a7d5bf-7f0f-4c9a-a983-5c40342ee303",
+    "lever:lendbuzz:f0987140-7abb-4f27-a43d-b8bb2f5c5905",
     "lever:lendbuzz:fdcfb27b-8190-4fa5-8587-f76d372b7919",
     "lever:lyrahealth:0c7c6334-23f7-48a6-af77-03bda5292be9",
     "lever:lyrahealth:12b44bca-f78d-45c7-9dad-5bb7c45103a2",
