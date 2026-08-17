@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-08-16T21:56:29.969572+00:00",
+  "updated_utc": "2026-08-17T02:12:27.619409+00:00",
   "boards_dead": [
     "ashby:aviator",
     "ashby:contextual",
@@ -291,6 +291,7 @@
     "greenhouse:mashgin",
     "greenhouse:matillion",
     "greenhouse:mattel",
+    "greenhouse:matx",
     "greenhouse:maxmind",
     "greenhouse:medallia",
     "greenhouse:medbridged",

@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-08-16T21:56:30.165471+00:00",
+  "updated_utc": "2026-08-17T02:12:27.620610+00:00",
   "dead_details": {
     "greenhouse:auth0": {
       "first_seen_utc": "2026-02-16T03:03:47.356270+00:00",
@@ -8563,6 +8563,15 @@
     "greenhouse:bitly": {
       "first_seen_utc": "2026-08-15T13:17:30.143380+00:00",
       "last_seen_utc": "2026-08-15T13:17:30.143380+00:00",
+      "platform": "greenhouse",
+      "company": "",
+      "board_url": "",
+      "last_status": 404,
+      "last_error": "HTTP 404/410 (board not found)"
+    },
+    "greenhouse:matx": {
+      "first_seen_utc": "2026-08-17T02:11:00.434556+00:00",
+      "last_seen_utc": "2026-08-17T02:11:00.434556+00:00",
       "platform": "greenhouse",
       "company": "",
       "board_url": "",
