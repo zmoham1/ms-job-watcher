@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-08-17T10:19:07.108920+00:00",
+  "updated_utc": "2026-08-17T13:29:09.616465+00:00",
   "seen_ids": [
     "ashby:1password:03e43d8b-af31-489e-a97c-a7da66df129b",
     "ashby:1password:0e9a990d-5750-44c6-b399-887eae1fba49",
@@ -1075,6 +1075,7 @@
     "ashby:snowflake:b93dd7ef-bb2b-4cc5-aef6-19576a7157fb",
     "ashby:snowflake:b9b85c1d-0760-4e28-9dfe-41724c8335a1",
     "ashby:snowflake:ba48d3df-08c5-4f52-9f63-9b492614be34",
+    "ashby:snowflake:bb924afc-7b08-4318-bfd6-722440b8c436",
     "ashby:snowflake:bcb00e62-34db-41b4-a044-07f4438ea60a",
     "ashby:snowflake:bcb80316-f41f-40b8-b146-3bfedb46f9cd",
     "ashby:snowflake:bcd7eea8-1f1e-437b-b7d1-52361493d55e",
@@ -17162,6 +17163,7 @@
     "lever:spotify:19c5ea15-6f4d-425a-911c-c3f0ae086f8f",
     "lever:spotify:1a57cee3-9673-4bb0-90d3-5bd456fa1d3e",
     "lever:spotify:1a78f396-2295-4fa0-8c44-9a6cdd21b1b9",
+    "lever:spotify:1bbaf909-5ff3-4ed6-87ca-f7ff007a169c",
     "lever:spotify:1bd333fe-a039-4aa7-9a84-941296bbe86b",
     "lever:spotify:2581943f-52cd-4967-b2bd-c1a0354fa422",
     "lever:spotify:26731335-a117-4126-abdc-c0fa9cca5892",
@@ -49293,6 +49295,7 @@
     "workday:oshkoshcorporation:Oshkosh:req:R49108",
     "workday:oshkoshcorporation:Oshkosh:req:R49155",
     "workday:oshkoshcorporation:Oshkosh:req:R49202",
+    "workday:oshkoshcorporation:Oshkosh:req:R49347",
     "workday:oshkoshcorporation:Oshkosh:url:https://oshkoshcorporation.wd5.myworkdayjobs.com/en-US/Oshkosh/job/Appleton-Wisconsin-United-States/Chief-Manufacturing-Engineer_R39874",
     "workday:oshkoshcorporation:Oshkosh:url:https://oshkoshcorporation.wd5.myworkdayjobs.com/en-US/Oshkosh/job/Appleton-Wisconsin-United-States/Controls-Engineer_R43615",
     "workday:oshkoshcorporation:Oshkosh:url:https://oshkoshcorporation.wd5.myworkdayjobs.com/en-US/Oshkosh/job/Appleton-Wisconsin-United-States/Engineer---Mechanical-Design_R43579",
