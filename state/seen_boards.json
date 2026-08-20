@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-08-20T10:09:28.725617+00:00",
+  "updated_utc": "2026-08-20T13:36:03.279532+00:00",
   "seen_ids": [
     "ashby:1password:03e43d8b-af31-489e-a97c-a7da66df129b",
     "ashby:1password:0e9a990d-5750-44c6-b399-887eae1fba49",
@@ -949,6 +949,7 @@
     "ashby:snowflake:3d9d64b3-3744-4d80-a7e5-693bf0759cfc",
     "ashby:snowflake:3dbc6708-52dc-4b8d-b37f-6a8d81463b12",
     "ashby:snowflake:3df779c8-48f9-4fa0-90e5-b95db80a560d",
+    "ashby:snowflake:3e456510-bf29-4dbf-9a27-33a8ace8a44a",
     "ashby:snowflake:3eb872af-0ab1-4986-8f72-e7321fcd1538",
     "ashby:snowflake:4475c333-7e3e-4f28-bc8a-ccb77c45de0a",
     "ashby:snowflake:45c50137-e81e-4d31-8b09-56f3bd19862a",
@@ -12702,6 +12703,7 @@
     "greenhouse:sonyinteractiveentertainmentglobal:6134284004",
     "greenhouse:sonyinteractiveentertainmentglobal:6142044004",
     "greenhouse:sonyinteractiveentertainmentglobal:6145023004",
+    "greenhouse:sonyinteractiveentertainmentglobal:6147950004",
     "greenhouse:spacex:8087272002",
     "greenhouse:spacex:8116055002",
     "greenhouse:spacex:8136339002",
@@ -19540,6 +19542,7 @@
     "smartrecruiters:ServiceNow:744000144418167",
     "smartrecruiters:ServiceNow:744000144420159",
     "smartrecruiters:ServiceNow:744000144420889",
+    "smartrecruiters:ServiceNow:744000144457589",
     "smartrecruiters:Slack2:743999931040577",
     "smartrecruiters:Tyco:111331183",
     "smartrecruiters:Tyco:111331399",
