@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-08-22T04:17:14.692485+00:00",
+  "updated_utc": "2026-08-22T07:18:51.529578+00:00",
   "seen_ids": [
     "ashby:1password:03e43d8b-af31-489e-a97c-a7da66df129b",
     "ashby:1password:0e9a990d-5750-44c6-b399-887eae1fba49",
@@ -6635,6 +6635,7 @@
     "greenhouse:databricks:8694074002",
     "greenhouse:databricks:8701065002",
     "greenhouse:databricks:8727543002",
+    "greenhouse:databricks:8739484002",
     "greenhouse:datadog:3210217",
     "greenhouse:datadog:3851927",
     "greenhouse:datadog:3851935",
@@ -7452,6 +7453,7 @@
     "greenhouse:figma:6014642004",
     "greenhouse:figma:6037719004",
     "greenhouse:figma:6110219004",
+    "greenhouse:figma:6150563004",
     "greenhouse:figureai:4006360006",
     "greenhouse:figureai:4007375006",
     "greenhouse:figureai:4313470006",
