@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-08-24T02:12:25.835203+00:00",
+  "updated_utc": "2026-08-24T04:32:42.114122+00:00",
   "seen_ids": [
     "ashby:1password:03e43d8b-af31-489e-a97c-a7da66df129b",
     "ashby:1password:0e9a990d-5750-44c6-b399-887eae1fba49",
@@ -4640,6 +4640,8 @@
     "greenhouse:apptronik:6145262004",
     "greenhouse:apptronik:6145685004",
     "greenhouse:apptronik:6145687004",
+    "greenhouse:apptronik:6148660004",
+    "greenhouse:apptronik:6150041004",
     "greenhouse:apptronik:6150237004",
     "greenhouse:arcesiumllc:4323305007",
     "greenhouse:arcesiumllc:4457575007",
@@ -33612,6 +33614,9 @@
     "workday:disney:disneycareer:req:10157361",
     "workday:disney:disneycareer:req:10157609",
     "workday:disney:disneycareer:req:10157922",
+    "workday:disney:disneycareer:req:10158139",
+    "workday:disney:disneycareer:req:10158141",
+    "workday:disney:disneycareer:req:10158145",
     "workday:disney:disneycareer:url:https://disney.wd5.myworkdayjobs.com/en-US/disneycareer/job/Anaheim-CA-USA/Manager--Mechanical-Engineering_10146410",
     "workday:disney:disneycareer:url:https://disney.wd5.myworkdayjobs.com/en-US/disneycareer/job/Anaheim-CA-USA/Senior-Structural-Engineer_10139153",
     "workday:disney:disneycareer:url:https://disney.wd5.myworkdayjobs.com/en-US/disneycareer/job/Anaheim-CA-USA/Staff-Mechanical-Engineer_10142231",
@@ -47640,6 +47645,7 @@
     "workday:ngc:Northrop_Grumman_External_Site:req:R10247168",
     "workday:ngc:Northrop_Grumman_External_Site:req:R10247180",
     "workday:ngc:Northrop_Grumman_External_Site:req:R10247183",
+    "workday:ngc:Northrop_Grumman_External_Site:req:R10247207",
     "workday:ngc:Northrop_Grumman_External_Site:url:https://ngc.wd1.myworkdayjobs.com/en-US/Northrop_Grumman_External_Site/job/US-Expat---P754-Australia-Alice-Springs/Digital-Hardware-Engineer---2-3--Alice-Springs-Australia-_R10224364",
     "workday:ngc:Northrop_Grumman_External_Site:url:https://ngc.wd1.myworkdayjobs.com/en-US/Northrop_Grumman_External_Site/job/US-Expat---P754-Australia-Alice-Springs/Electro-Mechanical-Calibration-Engineer---2-3--Alice-Springs-AU-_R10224370",
     "workday:ngc:Northrop_Grumman_External_Site:url:https://ngc.wd1.myworkdayjobs.com/en-US/Northrop_Grumman_External_Site/job/US-Expat---P754-Australia-Alice-Springs/Electro-Mechanical-Calibration-Engineer---2-3--Alice-Springs-Australia-_R10224368",
