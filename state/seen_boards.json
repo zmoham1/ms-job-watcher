@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-08-27T01:07:17.789730+00:00",
+  "updated_utc": "2026-08-27T14:46:46.180643+00:00",
   "seen_ids": [
     "ashby:1password:03e43d8b-af31-489e-a97c-a7da66df129b",
     "ashby:1password:0e9a990d-5750-44c6-b399-887eae1fba49",
@@ -548,6 +548,7 @@
     "ashby:langchain:3e31c750-67f2-4d3d-ac29-48a2b57cf4bd",
     "ashby:langchain:3f793a73-9b0d-456b-9a7c-16441e3e6e69",
     "ashby:langchain:47a3bc2a-2bed-4d61-b1de-b3d7ec211a08",
+    "ashby:langchain:47ad420c-9302-4a4f-a35f-7dd29e1d9d28",
     "ashby:langchain:60884cbf-4849-4526-9f59-17de63535958",
     "ashby:langchain:60d3bd4f-e80f-45fb-9801-725d8b681d54",
     "ashby:langchain:6f32998b-111c-447b-b593-2b64c7de245d",
@@ -7810,6 +7811,7 @@
     "greenhouse:freedomconsulting:5212186007",
     "greenhouse:freedomconsulting:5222418007",
     "greenhouse:freedomconsulting:5222489007",
+    "greenhouse:freedomconsulting:5222925007",
     "greenhouse:freeformfuturecorp:6693521003",
     "greenhouse:freeformfuturecorp:6853937003",
     "greenhouse:freeformfuturecorp:7631560003",
@@ -17490,6 +17492,7 @@
     "lever:shieldai:e1b78ed6-0a52-49e1-9014-735873dab5a5",
     "lever:shieldai:e74514eb-0abd-4bae-b794-6ad1f9c339b2",
     "lever:shieldai:eb40936b-c469-4b30-9805-b83ad6dd3191",
+    "lever:shieldai:ee614940-c594-41da-8432-8a677e21520d",
     "lever:shieldai:f348563f-a5c9-4bbf-92eb-94fbcb64c14e",
     "lever:shieldai:f56dc368-862d-46fe-afe5-899f225547b5",
     "lever:skyways:11a848b9-0533-48dc-ac67-e633b459c1f5",
