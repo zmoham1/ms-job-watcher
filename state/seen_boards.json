@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-08-30T23:53:32.429497+00:00",
+  "updated_utc": "2026-08-31T06:16:15.993300+00:00",
   "seen_ids": [
     "ashby:1password:03e43d8b-af31-489e-a97c-a7da66df129b",
     "ashby:1password:0e9a990d-5750-44c6-b399-887eae1fba49",
@@ -36605,6 +36605,7 @@
     "workday:gdit:External_Career_Site:req:RQ227241",
     "workday:gdit:External_Career_Site:req:RQ227249",
     "workday:gdit:External_Career_Site:req:RQ227278",
+    "workday:gdit:External_Career_Site:req:RQ227315",
     "workday:gdit:External_Career_Site:req:RQ227322",
     "workday:gdit:External_Career_Site:req:RQ227344",
     "workday:gdit:External_Career_Site:req:RQ227372",
@@ -42135,6 +42136,7 @@
     "workday:leidos:External:req:R-00190673",
     "workday:leidos:External:req:R-00190690",
     "workday:leidos:External:req:R-00190704",
+    "workday:leidos:External:req:R-00190716",
     "workday:leidos:External:req:R-00190722",
     "workday:leidos:External:req:R-00190739",
     "workday:leidos:External:req:R-00190752",
@@ -50920,6 +50922,7 @@
     "workday:nvidia:NVIDIAExternalCareerSite:req:JR2024280",
     "workday:nvidia:NVIDIAExternalCareerSite:req:JR2024462",
     "workday:nvidia:NVIDIAExternalCareerSite:req:JR2024482",
+    "workday:nvidia:NVIDIAExternalCareerSite:req:JR2024540",
     "workday:nvidia:NVIDIAExternalCareerSite:req:JR2024727",
     "workday:nvidia:NVIDIAExternalCareerSite:url:https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Remote/Developer-Relations-Manager--Manufacturing_JR2014896",
     "workday:nvidia:NVIDIAExternalCareerSite:url:https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-CA-Remote/Manager--Software-Verification_JR1990967",
