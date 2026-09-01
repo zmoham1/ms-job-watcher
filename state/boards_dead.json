@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-09-01T14:18:34.416205+00:00",
+  "updated_utc": "2026-09-01T18:55:27.561701+00:00",
   "boards_dead": [
     "ashby:aviator",
     "ashby:contextual",
@@ -185,6 +185,7 @@
     "greenhouse:github",
     "greenhouse:gitprime",
     "greenhouse:gladly",
+    "greenhouse:glossgenius",
     "greenhouse:goodrx",
     "greenhouse:goodwatercapital",
     "greenhouse:gopuff",
@@ -290,6 +291,7 @@
     "greenhouse:mandiant",
     "greenhouse:mapal",
     "greenhouse:mapbox",
+    "greenhouse:marqeta",
     "greenhouse:mashgin",
     "greenhouse:matillion",
     "greenhouse:mattel",
