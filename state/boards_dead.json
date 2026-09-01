@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-09-01T18:55:27.561701+00:00",
+  "updated_utc": "2026-09-01T23:36:45.103596+00:00",
   "boards_dead": [
     "ashby:aviator",
     "ashby:contextual",
@@ -477,6 +477,7 @@
     "greenhouse:runsignup",
     "greenhouse:runwayml",
     "greenhouse:safegraph",
+    "greenhouse:sage",
     "greenhouse:sailpoint",
     "greenhouse:saksfifthavenue",
     "greenhouse:samsung",
