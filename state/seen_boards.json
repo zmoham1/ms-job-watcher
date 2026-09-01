@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-09-01T08:57:39.314707+00:00",
+  "updated_utc": "2026-09-01T14:18:34.376866+00:00",
   "seen_ids": [
     "ashby:1password:03e43d8b-af31-489e-a97c-a7da66df129b",
     "ashby:1password:0e9a990d-5750-44c6-b399-887eae1fba49",
@@ -8892,6 +8892,8 @@
     "greenhouse:lgelectronics:5393262008",
     "greenhouse:lgelectronics:5394128008",
     "greenhouse:lgelectronics:5406238008",
+    "greenhouse:lgelectronics:5412208008",
+    "greenhouse:lgelectronics:5412222008",
     "greenhouse:listrak:7961870",
     "greenhouse:liveperson:7672608",
     "greenhouse:liveperson:7672611",
@@ -10383,6 +10385,7 @@
     "greenhouse:parallel:5102774007",
     "greenhouse:parallel:5137372007",
     "greenhouse:parallel:5155218007",
+    "greenhouse:parallel:5226903007",
     "greenhouse:parloa:4604587101",
     "greenhouse:parloa:4780830101",
     "greenhouse:parloa:4799672101",
@@ -17071,6 +17074,7 @@
     "lever:field-ai:b5f58151-9a46-441f-badf-2e91244bfd39",
     "lever:field-ai:b600a2ab-cff1-4b8f-9940-4bd851c05e37",
     "lever:field-ai:b8127d47-3af0-4a8d-abf2-8de5e660ae8f",
+    "lever:field-ai:b83bfc63-d6a5-4fd8-a8a4-1a68a804563b",
     "lever:field-ai:bb127cde-930c-446f-908d-52e2c6f24cc9",
     "lever:field-ai:bfe4be50-8fdd-45bb-8865-0f77418e206d",
     "lever:field-ai:c0932811-6a6e-45b4-bced-4d0efe50d427",
