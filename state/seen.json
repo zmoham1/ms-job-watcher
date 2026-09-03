@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-09-02T23:17:08.782880+00:00",
+  "updated_utc": "2026-09-03T04:17:26.245076+00:00",
   "seen_ids": [
     "amazon:0001a63d-f66e-4a08-9c9e-812ade17341b",
     "amazon:002bb768-9bfa-483c-8265-7220b51959b7",
@@ -491,6 +491,7 @@
     "amazon:20a4f541-bb30-40f9-b9fd-fb82a442f95a",
     "amazon:20aa2535-3d8a-419b-a012-8dc676e29f8e",
     "amazon:20ceb2db-c53b-4c21-80a4-973853e237f4",
+    "amazon:20d837d2-2532-4fa6-8a93-0c996fd84f18",
     "amazon:20f741ab-cdbf-42e9-8c96-cc7330a259cb",
     "amazon:211cca2a-607f-4aaf-887d-fd29c0d6f1f4",
     "amazon:213d9a49-ecf9-489f-aca6-d02a16fc4e9a",
@@ -512,6 +513,7 @@
     "amazon:2271e720-3569-49f2-9815-e657675895ba",
     "amazon:22757f63-335f-4a32-8159-fdfe6fd3467c",
     "amazon:2276af81-04d0-4072-b2ed-3bf6d3c56aa6",
+    "amazon:227a6edd-e780-4e65-82c7-5d260e28fd39",
     "amazon:227c3aed-ef51-47fc-8b4d-349b517524b2",
     "amazon:2292d8e8-9a5d-43e7-82c3-09ba80997d96",
     "amazon:22940fd4-54cc-425e-8ebf-6b0f2defb583",
@@ -1514,6 +1516,7 @@
     "amazon:66d959ce-a447-4205-890d-e520517840b5",
     "amazon:66d9e424-cc69-45aa-8d5f-c97f8e0c9921",
     "amazon:66eb4a57-99b5-4e71-b82d-73df31722fd3",
+    "amazon:66ef5c65-7d7d-40ad-8125-ae19bbe56cde",
     "amazon:66fd48d4-f3ef-41be-87b9-8a6d6952974f",
     "amazon:66fe30f3-67d6-442e-acfc-31992117d2d6",
     "amazon:670ae95c-2d69-44cc-a35d-79f2c0307356",
@@ -3490,6 +3493,7 @@
     "amazon:e3fce850-60e5-470d-b5f0-02e1dc06aeec",
     "amazon:e4047a27-a873-4b2c-a6e4-c8ee5f023878",
     "amazon:e404c3d9-abd6-4777-9751-37111a6e14cf",
+    "amazon:e41a1759-d8d4-4c54-90cc-07edc9856058",
     "amazon:e4223bfb-7afc-4bbf-80f2-84231c306ccb",
     "amazon:e42b8cea-adf4-4c63-8d0e-ca81a32017ea",
     "amazon:e43a8568-e123-4b9b-9f84-274d3fb64739",
@@ -8299,6 +8303,7 @@
     "oracle:343573",
     "oracle:343574",
     "oracle:343585",
+    "oracle:343586",
     "oracle:343590",
     "oracle:343603",
     "oracle:343610",
@@ -8360,7 +8365,9 @@
     "oracle:344157",
     "oracle:344195",
     "oracle:344198",
+    "oracle:344216",
     "oracle:344242",
+    "oracle:344243",
     "oracle:344244",
     "oracle:344251",
     "oracle:344282",
@@ -8370,6 +8377,7 @@
     "oracle:344359",
     "oracle:344360",
     "oracle:344364",
-    "oracle:344365"
+    "oracle:344365",
+    "oracle:344376"
   ]
 }
