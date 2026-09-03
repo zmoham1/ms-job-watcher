@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-09-03T11:43:37.801115+00:00",
+  "updated_utc": "2026-09-03T16:45:37.296230+00:00",
   "boards_dead": [
     "ashby:aviator",
     "ashby:contextual",
@@ -282,6 +282,7 @@
     "greenhouse:lucidworks",
     "greenhouse:luminary",
     "greenhouse:macys",
+    "greenhouse:magicleap",
     "greenhouse:magnite",
     "greenhouse:mailchimp",
     "greenhouse:mailerlite",
