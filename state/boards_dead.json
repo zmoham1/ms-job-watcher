@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-09-06T05:06:15.964505+00:00",
+  "updated_utc": "2026-09-06T11:25:01.570090+00:00",
   "boards_dead": [
     "ashby:aviator",
     "ashby:contextual",
@@ -109,6 +109,7 @@
     "greenhouse:dave",
     "greenhouse:deel",
     "greenhouse:deepgram",
+    "greenhouse:deepmind",
     "greenhouse:definitivehealthcare",
     "greenhouse:deliverr",
     "greenhouse:demandbase",
