@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-09-08T16:54:13.308322+00:00",
+  "updated_utc": "2026-09-08T21:25:52.155103+00:00",
   "seen_ids": [
     "ashby:1password:03e43d8b-af31-489e-a97c-a7da66df129b",
     "ashby:1password:0e9a990d-5750-44c6-b399-887eae1fba49",
@@ -8179,6 +8179,7 @@
     "greenhouse:glydways:5094814007",
     "greenhouse:glydways:5207326007",
     "greenhouse:glydways:5215430007",
+    "greenhouse:glydways:5232465007",
     "greenhouse:godaddy:6608832003",
     "greenhouse:godaddy:6646397003",
     "greenhouse:godaddy:6653943003",
@@ -12438,6 +12439,7 @@
     "greenhouse:seurat:4691346005",
     "greenhouse:seurat:4698559005",
     "greenhouse:seurat:4716807005",
+    "greenhouse:seurat:4731179005",
     "greenhouse:sharkninjaoperatingllc:4565985006",
     "greenhouse:sharkninjaoperatingllc:4600175006",
     "greenhouse:sharkninjaoperatingllc:4603769006",
@@ -16548,6 +16550,7 @@
     "greenhouse:wasabi:5101129008",
     "greenhouse:wasabi:5137666008",
     "greenhouse:wasabi:5217551008",
+    "greenhouse:wasabi:5416462008",
     "greenhouse:webershandwick:8523210002",
     "greenhouse:webflow:7074561",
     "greenhouse:webflow:7166510",
@@ -17716,6 +17719,7 @@
     "lever:revefi:de6bd0b5-2308-435f-bb94-b418c57e7048",
     "lever:rigetti:1f07b3ce-fb02-429e-beaf-5c4c88d135ca",
     "lever:rigetti:251caffa-84df-47c1-8470-9c57a0897871",
+    "lever:rigetti:256218b9-f863-4583-b93b-bb08031929bf",
     "lever:rigetti:2a4c64d5-92c7-426c-89d0-7197781ef086",
     "lever:rigetti:7eb798d5-75e6-4bf4-893e-f9fe9d8a169e",
     "lever:rigetti:888f8b16-13fa-4723-a3de-ecf2174a2eb9",
