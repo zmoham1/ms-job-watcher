@@ -91,13 +91,27 @@ check("today clamped to now", resolved <= datetime.now(timezone.utc), True)
 # A genuinely future-dated posting is left alone and counts as fresh.
 check("future date passes", fresh((NOW + timedelta(days=5)).strftime("%Y-%m-%d")), True)
 
-# --- Ashby normalizer must carry the date through ------------------------------------
-ashby = watcher.normalize_ashby_job("Acme", "acme", {"id": "1", "title": "SWE", "publishedAt": iso(hours=3)})
-check("ashby posted populated", bool(ashby["posted"]), True)
-check("ashby fresh", watcher.job_is_fresh_enough(ashby, 24), True)
-# Falls back to updatedAt, and stays empty (=> policy switch) when the schema has neither.
-check("ashby updatedAt fallback", bool(watcher.normalize_ashby_job("A", "a", {"id": "1", "updatedAt": iso(hours=1)})["posted"]), True)
-check("ashby no date field", watcher.normalize_ashby_job("A", "a", {"id": "1"})["posted"], "")
+# --- Ashby normalizer handles BOTH response shapes ------------------------------------
+# REST posting API shape: location / jobUrl / publishedAt.
+rest = watcher.normalize_ashby_job("Acme", "acme", {
+    "id": "1", "title": "Business Analyst", "location": "Austin, TX",
+    "jobUrl": "https://jobs.ashbyhq.com/acme/1", "publishedAt": iso(hours=3),
+    "descriptionPlain": "Nice job",
+})
+check("ashby rest posted", bool(rest["posted"]), True)
+check("ashby rest fresh", watcher.job_is_fresh_enough(rest, 24), True)
+check("ashby rest location", rest["location"], "Austin, TX")
+check("ashby rest url", rest["url"], "https://jobs.ashbyhq.com/acme/1")
+check("ashby rest key", rest["key"], "ashby:acme:1")
+
+# GraphQL fallback shape: locationName, no date, no url -> url is synthesized, `posted` is
+# empty so the job falls through to the --freshness-unknown policy rather than vanishing.
+gql = watcher.normalize_ashby_job("Acme", "acme", {"id": "1", "title": "SWE", "locationName": "Remote"})
+check("ashby gql location", gql["location"], "Remote")
+check("ashby gql url synthesized", gql["url"], "https://jobs.ashbyhq.com/acme/1")
+check("ashby gql no date", gql["posted"], "")
+check("ashby gql same key as rest", gql["key"], rest["key"])
+check("ashby gql kept under keep policy", watcher.job_is_fresh_enough(gql, 24, unknown_ok=True), True)
 
 
 if FAILURES:

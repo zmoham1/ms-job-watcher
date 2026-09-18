@@ -1979,17 +1979,18 @@ def _ashby_query(fields: str) -> str:
 
 
 ASHBY_BASE_FIELDS = "id title locationName workplaceType employmentType"
-# Ashby exposes no posted date in the base selection set, so every Ashby job used to fail the
-# freshness gate. Request the date fields, but fall back to the base query for the rest of the
-# process if this schema rejects them — an unknown field fails the WHOLE GraphQL query.
-ASHBY_DATED_FIELDS = ASHBY_BASE_FIELDS + " publishedAt updatedAt"
 ASHBY_JOBS_QUERY = _ashby_query(ASHBY_BASE_FIELDS)
-ASHBY_JOBS_QUERY_DATED = _ashby_query(ASHBY_DATED_FIELDS)
 
-# Flipped to False the first time a board rejects the dated query; process-wide so one probe
-# failure doesn't cost an extra round trip on every remaining Ashby board.
-_ashby_dates_supported = True
-_ashby_dates_lock = threading.Lock()
+# The non-user-graphql endpoint above exposes NO posted date — verified 2026-09-18, it rejects
+# both `publishedAt` and `updatedAt`. The public REST posting API does return `publishedAt`, so
+# that is tried first and the GraphQL query is kept only as a fallback.
+ASHBY_REST_URL = "https://api.ashbyhq.com/posting-api/job-board/{slug}"
+
+# None = REST not yet proven in this process, True = proven working, False = disabled for this
+# process after an unusable response. Until REST is *proven*, a 404 is ambiguous (missing slug
+# vs. wrong endpoint), so it must never dead-mark a board — that is permanent and single-strike.
+_ashby_rest_ok: Optional[bool] = None
+_ashby_rest_lock = threading.Lock()
 
 
 def ashby_slug_from_board_url(board_url: str) -> str:
@@ -2018,19 +2019,57 @@ def _ashby_post(company_slug: str, query: str, timeout: int) -> Dict[str, Any]:
     return r.json() or {}
 
 
+def _ashby_disable_rest(reason: str) -> None:
+    global _ashby_rest_ok
+    with _ashby_rest_lock:
+        if _ashby_rest_ok is not False:
+            _ashby_rest_ok = False
+            print(f"[INFO] Ashby REST posting API unusable ({reason}); falling back to the GraphQL query.")
+
+
+def _fetch_ashby_rest(company_slug: str, timeout: int) -> Optional[List[Dict[str, Any]]]:
+    """Return postings from the REST posting API, or None to mean 'use the GraphQL path'."""
+    global _ashby_rest_ok
+
+    sess = _get_session("ashby")
+    r = sess.get(ASHBY_REST_URL.format(slug=company_slug), timeout=timeout)
+
+    if r.status_code == 404:
+        if _ashby_rest_ok:
+            # REST is proven to work, so a 404 really is a missing slug. Let the caller's
+            # dead-board tracking handle it exactly as it does for Greenhouse.
+            r.raise_for_status()
+        # Endpoint unproven: can't tell a missing board from a wrong URL. Defer to GraphQL,
+        # which reaches the same verdict safely for a genuinely missing slug.
+        return None
+
+    r.raise_for_status()
+    try:
+        data = r.json() or {}
+    except ValueError:
+        _ashby_disable_rest("response was not JSON")
+        return None
+
+    jobs = data.get("jobs")
+    if not isinstance(jobs, list):
+        _ashby_disable_rest("no 'jobs' list in response")
+        return None
+
+    if _ashby_rest_ok is None:
+        with _ashby_rest_lock:
+            if _ashby_rest_ok is None:
+                _ashby_rest_ok = True
+                print("[INFO] Ashby REST posting API confirmed working (posted dates available).")
+    return jobs
+
+
 def fetch_ashby_jobs(company_slug: str, timeout: int = DEFAULT_TIMEOUT) -> List[Dict[str, Any]]:
-    global _ashby_dates_supported
+    if _ashby_rest_ok is not False:
+        jobs = _fetch_ashby_rest(company_slug, timeout)
+        if jobs is not None:
+            return jobs
 
-    use_dates = _ashby_dates_supported
-    data = _ashby_post(company_slug, ASHBY_JOBS_QUERY_DATED if use_dates else ASHBY_JOBS_QUERY, timeout)
-
-    if use_dates and data.get("errors"):
-        # The date fields aren't in this schema — retry once without them and stop asking.
-        with _ashby_dates_lock:
-            if _ashby_dates_supported:
-                _ashby_dates_supported = False
-                print("[INFO] Ashby rejected the posted-date fields; falling back to the base query.")
-        data = _ashby_post(company_slug, ASHBY_JOBS_QUERY, timeout)
+    data = _ashby_post(company_slug, ASHBY_JOBS_QUERY, timeout)
 
     board = (data.get("data") or {}).get("jobBoard")
     if board is None:
@@ -2050,12 +2089,17 @@ def normalize_ashby_job(company_name: str, company_slug: str, job: Dict[str, Any
     job_id = str(job.get("id") or "")
     key = ashby_key(company_slug, job_id) if job_id else f"ashby:{company_slug}:url:"
     title = job.get("title") or "Unknown Title"
-    loc = job.get("locationName") or "Unknown Location"
-    url = (
-        f"https://jobs.ashbyhq.com/{company_slug}/{job_id}"
-        if job_id
-        else f"https://jobs.ashbyhq.com/{company_slug}"
-    )
+    # REST posting API calls it `location`; the GraphQL board calls it `locationName`.
+    loc = job.get("location") or job.get("locationName") or "Unknown Location"
+    url = job.get("jobUrl") or job.get("applyUrl") or ""
+    if not url:
+        url = (
+            f"https://jobs.ashbyhq.com/{company_slug}/{job_id}"
+            if job_id
+            else f"https://jobs.ashbyhq.com/{company_slug}"
+        )
+    # Only the REST shape carries these; the GraphQL shape has no date at all and falls
+    # through to the --freshness-unknown policy.
     posted_str = job.get("publishedAt") or job.get("updatedAt") or ""
     return {
         "key": str(key),
@@ -2064,7 +2108,7 @@ def normalize_ashby_job(company_name: str, company_slug: str, job: Dict[str, Any
         "location": str(loc),
         "posted": str(posted_str),
         "url": str(url),
-        "eligibility_text": "",
+        "eligibility_text": _clean_text_blob(job.get("descriptionPlain") or ""),
     }
 
 

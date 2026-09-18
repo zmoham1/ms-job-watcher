@@ -2,7 +2,14 @@
   "title_filters": {
     "add_strong_include_phrases": [
       "project coordinator",
-      "business analyst"
+      "business analyst",
+      "business systems analyst",
+      "business process analyst",
+      "business operations analyst",
+      "business intelligence analyst",
+      "business technology analyst",
+      "systems analyst",
+      "bi analyst"
     ],
     "add_hard_exclude_phrases": [
       "software engineer",
@@ -11,7 +18,11 @@
       "fullstack"
     ],
     "remove_hard_exclude_phrases": [
-      "business analyst"
+      "business analyst",
+      "reporting"
+    ],
+    "add_soft_exclude_phrases": [
+      "reporting"
     ],
     "remove_strong_include_phrases": [
       "software engineer",
