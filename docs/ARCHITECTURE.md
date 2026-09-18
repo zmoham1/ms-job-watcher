@@ -1,6 +1,7 @@
 # ms-job-watcher — Architecture Reference
 
-> Auto-generated from code audit on 2026-06-01. Re-run audit if watcher.py changes substantially.
+> Auto-generated from code audit on 2026-06-01; repo map + freshness notes corrected 2026-09-18.
+> Re-run audit if watcher.py changes substantially.
 
 ---
 
@@ -9,21 +10,20 @@
 ### Source code `[code]`
 | File | Tag | Notes |
 |---|---|---|
-| `watcher.py` | [code] | Single-file core — 2,115 lines, all logic |
-| `check_ashby_boards.py` | [code] | One-off discovery: probes a hardcoded SLUGS list against Ashby API, appends found boards to `ashby_new_boards.csv`. Not imported by watcher.py. |
+| `watcher.py` | [code] | Single-file core — ~2,700 lines, all logic |
 | `migrate_workday_seen_keys.py` | [code] | One-time migration: back-fills `req:` keys for old Workday `url:` entries in seen state. No longer needed after it was run. Dead utility. |
-| `verify_ashby.py` | [code] | Standalone verifier for Ashby boards CSV. Not imported by watcher.py. |
-| `verify_greenhouse.py` | [code] | Standalone verifier for Greenhouse boards CSV. Not imported by watcher.py. |
-| `verify_lever.py` | [code] | Standalone verifier for Lever boards CSV. Not imported by watcher.py. |
-| `verify_smartrecruiters.py` | [code] | Standalone verifier for SmartRecruiters boards CSV. Not imported by watcher.py. |
-| `verify_workday.py` | [code] | Standalone verifier for Workday boards CSV. Not imported by watcher.py. |
+| `tests/test_freshness.py` | [test] | Dependency-free regression tests for the posted-date freshness gate. Run with `python3 tests/test_freshness.py`. |
 | `requirements.txt` | [config] | `requests`, `urllib3` only. |
+
+> The `verify_*.py` standalone verifiers and `check_ashby_boards.py` listed in earlier
+> revisions of this document are **not present in the repo** — they were removed (or never
+> committed) before 2026-09. Don't go looking for them.
 
 ### GitHub Actions `[workflow]`
 | File | Tag |
 |---|---|
-| `.github/workflows/watcher.yml` | [workflow] — main sources, every ~20 min |
-| `.github/workflows/boards.yml` | [workflow] — ATS board sweep, every ~30 min |
+| `.github/workflows/watcher.yml` | [workflow] — main sources, cron `13 */3 * * *` (observed gap ~5h) |
+| `.github/workflows/boards.yml` | [workflow] — ATS board sweep, cron `43 */3 * * *` (observed gap ~5h) |
 
 ### Config `[config]`
 | File | Tag |

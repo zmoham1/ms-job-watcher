@@ -12,7 +12,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from urllib.parse import urlparse
 from email.mime.text import MIMEText
 from email.utils import parsedate_to_datetime
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from typing import Any, Dict, List, Set, Tuple, Optional
 import html
 
@@ -405,6 +405,74 @@ def job_passes_eligibility_filters(job: Dict[str, str]) -> bool:
     return not any(phrase in text for phrase in HARD_EXCLUDE_TEXT_PHRASES)
 
 
+# Several ATS platforms return `posted` as human-readable display text rather than a
+# timestamp — Workday CXS `postedOn` is always "Posted 3 Days Ago" / "Posted Today", never
+# a date. Those strings have to resolve to a real datetime or the freshness gate drops
+# every job from those sources permanently (see docs/STATE.md).
+_RELATIVE_POSTED_RE = re.compile(r"(\d+)\s*\+?\s*(minute|min|hour|hr|day|week|month|year)s?\s+ago", re.I)
+_RELATIVE_UNIT_HOURS = {
+    "minute": 1.0 / 60,
+    "min": 1.0 / 60,
+    "hour": 1.0,
+    "hr": 1.0,
+    "day": 24.0,
+    "week": 24.0 * 7,
+    "month": 24.0 * 30,
+    "year": 24.0 * 365,
+}
+_POSTED_TODAY_TOKENS = ("today", "just posted", "just now", "new", "posted today")
+
+# Day-granularity dates ("2026-09-17", "Posted Yesterday", "Posted 2 Days Ago") name a
+# 24h-wide window, and taking the START of it treats a job as up to a full day older than it
+# may be. That systematically drops real jobs: a board is only revisited every ~10-19h, so a
+# job first seen as "Posted Yesterday" gets pushed past a 24h cutoff it is actually inside.
+# Recall-first (CLAUDE.md) => resolve a day-granularity date to the most recent instant
+# consistent with it, capped at now. Coarser units (week/month/year) are left alone; they are
+# far outside any sane freshness window, so widening them would only add noise.
+_DAY = timedelta(hours=24)
+
+
+def _resolve_day_granularity(dt: datetime) -> datetime:
+    now = datetime.now(timezone.utc)
+    return min(dt + _DAY - timedelta(seconds=1), now) if dt < now else dt
+
+
+def _strip_posted_prefix(text: str) -> str:
+    stripped = text.strip()
+    if stripped[:6].lower() == "posted":
+        stripped = stripped[6:]
+    return stripped.strip(" \t.:-–—")
+
+
+def parse_relative_posted(text: str) -> Optional[datetime]:
+    """Resolve relative posted-date display strings (Workday, some Ashby/Lever boards)."""
+    bare = _strip_posted_prefix(text).lower()
+    if not bare:
+        return None
+
+    now = datetime.now(timezone.utc)
+    if bare in _POSTED_TODAY_TOKENS:
+        return now
+    if bare == "yesterday":
+        return _resolve_day_granularity(now - _DAY)
+
+    m = _RELATIVE_POSTED_RE.search(bare)
+    if not m:
+        return None
+    try:
+        amount = int(m.group(1))
+    except ValueError:
+        return None
+    unit = m.group(2).lower()
+    unit_hours = _RELATIVE_UNIT_HOURS.get(unit)
+    if unit_hours is None:
+        return None
+    # "30+ Days Ago" is treated as exactly 30 days — already far outside any sane
+    # --hours-fresh, so the lost precision on the "+" cannot change an alerting decision.
+    dt = now - timedelta(hours=amount * unit_hours)
+    return _resolve_day_granularity(dt) if unit == "day" else dt
+
+
 def parse_posted_datetime(raw: Any) -> Optional[datetime]:
     if raw is None:
         return None
@@ -437,16 +505,38 @@ def parse_posted_datetime(raw: Any) -> Optional[datetime]:
     ):
         try:
             dt = datetime.fromisoformat(candidate)
-            return dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
+            dt = dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
+            # fromisoformat("2026-09-17") silently yields midnight — that's a date, not a time.
+            return _resolve_day_granularity(dt) if len(candidate.strip()) <= 10 else dt
         except ValueError:
             pass
 
-    for fmt in ("%Y-%m-%d %H:%M %z", "%Y-%m-%d", "%m/%d/%Y", "%Y/%m/%d"):
-        try:
-            dt = datetime.strptime(text, fmt)
-            return dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
-        except ValueError:
-            pass
+    # Try both the raw text and the "Posted " -stripped form, so "Posted March 3, 2026"
+    # parses the same as "March 3, 2026".
+    bare = _strip_posted_prefix(text)
+    for fmt, date_only in (
+        ("%Y-%m-%d %H:%M %z", False),
+        ("%Y-%m-%d", True),
+        ("%m/%d/%Y", True),
+        ("%m/%d/%y", True),
+        ("%Y/%m/%d", True),
+        ("%B %d, %Y", True),   # amazon.jobs posted_date: "March 3, 2026"
+        ("%b %d, %Y", True),   # "Mar 3, 2026"
+        ("%B %d %Y", True),
+        ("%d %B %Y", True),
+        ("%d %b %Y", True),
+    ):
+        for candidate in (text, bare):
+            try:
+                dt = datetime.strptime(candidate, fmt)
+                dt = dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
+                return _resolve_day_granularity(dt) if date_only else dt
+            except ValueError:
+                pass
+
+    relative = parse_relative_posted(text)
+    if relative is not None:
+        return relative
 
     try:
         dt = parsedate_to_datetime(text)
@@ -455,12 +545,18 @@ def parse_posted_datetime(raw: Any) -> Optional[datetime]:
         return None
 
 
-def job_is_fresh_enough(job: Dict[str, str], hours_fresh: Optional[int]) -> bool:
+# What to do with a matched job whose posted date can't be determined at all. Recall-first
+# (see CLAUDE.md): a missed job is expensive, a junk alert is cheap — so an unknown date
+# defaults to "keep". Set to False (--freshness-unknown drop) for the old strict behavior.
+FRESHNESS_UNKNOWN_OK = True
+
+
+def job_is_fresh_enough(job: Dict[str, str], hours_fresh: Optional[int], unknown_ok: Optional[bool] = None) -> bool:
     if hours_fresh is None:
         return True
     posted_dt = parse_posted_datetime(job.get("posted"))
     if posted_dt is None:
-        return False
+        return FRESHNESS_UNKNOWN_OK if unknown_ok is None else unknown_ok
     cutoff = datetime.now(timezone.utc).timestamp() - (hours_fresh * 3600)
     return posted_dt.timestamp() >= cutoff
 
@@ -1268,12 +1364,16 @@ def normalize_goldman_item(item: Dict[str, Any]) -> Dict[str, str]:
         loc = make_location([chosen.get("city"), chosen.get("state"), chosen.get("country")])
     role_id = str(item.get("roleId", ""))
     url = f"https://higher.gs.com/roles/{role_id}" if role_id else "https://higher.gs.com/results"
+    # GS_PAYLOAD's selection set carries no date field today (adding an unknown one would fail
+    # the whole GraphQL query), so this is normally empty and the job falls through to the
+    # --freshness-unknown policy. Read it opportunistically in case the response gains one.
+    posted_str = item.get("postedDate") or item.get("postingDate") or item.get("createdDate") or ""
     return {
         "key": str(key),
         "company": "Goldman Sachs",
         "title": str(title),
         "location": str(loc),
-        "posted": "",
+        "posted": str(posted_str),
         "url": str(url),
         "eligibility_text": "",
     }
@@ -1866,13 +1966,30 @@ def normalize_lever_job(company_name: str, company_slug: str, job: Dict[str, Any
 # Ashby (Boards mode)
 # -----------------------------
 ASHBY_API_URL = "https://jobs.ashbyhq.com/api/non-user-graphql"
-ASHBY_JOBS_QUERY = (
-    "query ApiJobBoardWithTeams($organizationHostedJobsPageName: String!) {"
-    "  jobBoard: jobBoardWithTeams(organizationHostedJobsPageName: $organizationHostedJobsPageName) {"
-    "    jobPostings { id title locationName workplaceType employmentType }"
-    "  }"
-    "}"
-)
+
+
+def _ashby_query(fields: str) -> str:
+    return (
+        "query ApiJobBoardWithTeams($organizationHostedJobsPageName: String!) {"
+        "  jobBoard: jobBoardWithTeams(organizationHostedJobsPageName: $organizationHostedJobsPageName) {"
+        f"    jobPostings {{ {fields} }}"
+        "  }"
+        "}"
+    )
+
+
+ASHBY_BASE_FIELDS = "id title locationName workplaceType employmentType"
+# Ashby exposes no posted date in the base selection set, so every Ashby job used to fail the
+# freshness gate. Request the date fields, but fall back to the base query for the rest of the
+# process if this schema rejects them — an unknown field fails the WHOLE GraphQL query.
+ASHBY_DATED_FIELDS = ASHBY_BASE_FIELDS + " publishedAt updatedAt"
+ASHBY_JOBS_QUERY = _ashby_query(ASHBY_BASE_FIELDS)
+ASHBY_JOBS_QUERY_DATED = _ashby_query(ASHBY_DATED_FIELDS)
+
+# Flipped to False the first time a board rejects the dated query; process-wide so one probe
+# failure doesn't cost an extra round trip on every remaining Ashby board.
+_ashby_dates_supported = True
+_ashby_dates_lock = threading.Lock()
 
 
 def ashby_slug_from_board_url(board_url: str) -> str:
@@ -1885,7 +2002,7 @@ def ashby_key(company_slug: str, job_id: str) -> str:
     return f"ashby:{company_slug}:{job_id}"
 
 
-def fetch_ashby_jobs(company_slug: str, timeout: int = DEFAULT_TIMEOUT) -> List[Dict[str, Any]]:
+def _ashby_post(company_slug: str, query: str, timeout: int) -> Dict[str, Any]:
     sess = _get_session("ashby")
     r = sess.post(
         ASHBY_API_URL,
@@ -1893,14 +2010,34 @@ def fetch_ashby_jobs(company_slug: str, timeout: int = DEFAULT_TIMEOUT) -> List[
         json={
             "operationName": "ApiJobBoardWithTeams",
             "variables": {"organizationHostedJobsPageName": company_slug},
-            "query": ASHBY_JOBS_QUERY,
+            "query": query,
         },
         timeout=timeout,
     )
     r.raise_for_status()
-    data = r.json()
+    return r.json() or {}
+
+
+def fetch_ashby_jobs(company_slug: str, timeout: int = DEFAULT_TIMEOUT) -> List[Dict[str, Any]]:
+    global _ashby_dates_supported
+
+    use_dates = _ashby_dates_supported
+    data = _ashby_post(company_slug, ASHBY_JOBS_QUERY_DATED if use_dates else ASHBY_JOBS_QUERY, timeout)
+
+    if use_dates and data.get("errors"):
+        # The date fields aren't in this schema — retry once without them and stop asking.
+        with _ashby_dates_lock:
+            if _ashby_dates_supported:
+                _ashby_dates_supported = False
+                print("[INFO] Ashby rejected the posted-date fields; falling back to the base query.")
+        data = _ashby_post(company_slug, ASHBY_JOBS_QUERY, timeout)
+
     board = (data.get("data") or {}).get("jobBoard")
     if board is None:
+        if data.get("errors"):
+            # A query error is not a missing slug. Marking dead here is permanent and
+            # single-strike, so raise a plain error and let the board be retried next sweep.
+            raise RuntimeError(f"ashby graphql error for {company_slug}: {str(data.get('errors'))[:200]}")
         # Slug not found — synthesize a 404 so dead-board tracking fires the same way as Greenhouse
         import requests as _req
         fake = _req.models.Response()
@@ -1919,12 +2056,13 @@ def normalize_ashby_job(company_name: str, company_slug: str, job: Dict[str, Any
         if job_id
         else f"https://jobs.ashbyhq.com/{company_slug}"
     )
+    posted_str = job.get("publishedAt") or job.get("updatedAt") or ""
     return {
         "key": str(key),
         "company": str(company_name),
         "title": str(title),
         "location": str(loc),
-        "posted": "",
+        "posted": str(posted_str),
         "url": str(url),
         "eligibility_text": "",
     }
@@ -2436,9 +2574,26 @@ if __name__ == "__main__":
     parser.add_argument("--boards-run-until-wrap", action="store_true", help="In boards mode, keep running batches until cursor wraps to 0 (full sweep).")
     parser.add_argument("--boards-max-iterations", type=int, default=2000, help="Safety cap for --boards-run-until-wrap (default: 2000 iterations).")
     parser.add_argument("--hours-fresh", type=int, default=None, help="Only keep jobs whose posted timestamp is within the last N hours.")
+    parser.add_argument(
+        "--freshness-unknown",
+        choices=("keep", "drop"),
+        default="keep",
+        help=(
+            "What to do with a matched job whose posted date can't be parsed at all, when "
+            "--hours-fresh is set. 'keep' (default, recall-first) still emails it; 'drop' is "
+            "the old strict behavior that silently discarded every dateless source."
+        ),
+    )
     parser.add_argument("--always-send-summary", action="store_true", help="Send an email even when no new matching jobs were found.")
 
     args = parser.parse_args()
+
+    FRESHNESS_UNKNOWN_OK = args.freshness_unknown == "keep"
+    if args.hours_fresh is not None:
+        print(
+            f"[INFO] Freshness gate: <= {args.hours_fresh}h; unparseable posted dates -> "
+            f"{'kept' if FRESHNESS_UNKNOWN_OK else 'dropped'}."
+        )
 
     if args.mode == "boards":
         seen = load_seen_ids(STATE_PATH)
