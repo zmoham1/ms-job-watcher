@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-06-04T01:20Z",
-    "mode": "main",
-    "per_source": {
-      "microsoft": {
-        "fetched": 171,
-        "title_ok": 103,
-        "loc_ok": 103,
-        "new": 0,
-        "emailed": 0
-      },
-      "amazon": {
-        "fetched": 300,
-        "title_ok": 278,
-        "loc_ok": 278,
-        "new": 0,
-        "emailed": 0
-      },
-      "nvidia": {
-        "fetched": 20,
-        "title_ok": 20,
-        "loc_ok": 20,
-        "new": 0,
-        "emailed": 0
-      },
-      "goldman_sachs": {
-        "fetched": 1,
-        "title_ok": 1,
-        "loc_ok": 0,
-        "new": 0,
-        "emailed": 0
-      },
-      "ibm": {
-        "fetched": 10,
-        "title_ok": 8,
-        "loc_ok": 2,
-        "new": 0,
-        "emailed": 0
-      },
-      "oracle": {
-        "fetched": 0,
-        "title_ok": 0,
-        "loc_ok": 0,
-        "new": 0,
-        "emailed": 0
-      }
-    },
-    "duration_s": 12.8,
-    "cursor": null
-  },
-  {
     "ts": "2026-06-04T01:31Z",
     "mode": "boards",
     "per_source": {
@@ -44434,5 +44384,48 @@
     },
     "duration_s": 25.7,
     "cursor": null
+  },
+  {
+    "ts": "2026-09-20T11:51Z",
+    "mode": "boards",
+    "per_source": {
+      "greenhouse": {
+        "fetched": 12887,
+        "title_ok": 2862,
+        "loc_ok": 1937,
+        "new": 1,
+        "emailed": 1
+      },
+      "lever": {
+        "fetched": 1258,
+        "title_ok": 332,
+        "loc_ok": 236,
+        "new": 0,
+        "emailed": 0
+      },
+      "smartrecruiters": {
+        "fetched": 1670,
+        "title_ok": 260,
+        "loc_ok": 149,
+        "new": 0,
+        "emailed": 0
+      },
+      "ashby": {
+        "fetched": 4790,
+        "title_ok": 1068,
+        "loc_ok": 232,
+        "new": 0,
+        "emailed": 0
+      },
+      "workday": {
+        "fetched": 11000,
+        "title_ok": 1851,
+        "loc_ok": 341,
+        "new": 0,
+        "emailed": 0
+      }
+    },
+    "duration_s": 157.1,
+    "cursor": 1000
   }
 ]
