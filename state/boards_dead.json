@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-09-19T23:34:06.194336+00:00",
+  "updated_utc": "2026-09-20T05:28:55.081046+00:00",
   "boards_dead": [
     "ashby:aviator",
     "ashby:contextual",
@@ -245,6 +245,7 @@
     "greenhouse:katapult",
     "greenhouse:khealth",
     "greenhouse:khoros",
+    "greenhouse:kickstarter",
     "greenhouse:kik",
     "greenhouse:kilroyblockchain",
     "greenhouse:kindred",
