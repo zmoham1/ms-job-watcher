@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-06-04T03:20Z",
-    "mode": "main",
-    "per_source": {
-      "microsoft": {
-        "fetched": 171,
-        "title_ok": 103,
-        "loc_ok": 103,
-        "new": 0,
-        "emailed": 0
-      },
-      "amazon": {
-        "fetched": 300,
-        "title_ok": 278,
-        "loc_ok": 278,
-        "new": 0,
-        "emailed": 0
-      },
-      "nvidia": {
-        "fetched": 20,
-        "title_ok": 20,
-        "loc_ok": 20,
-        "new": 0,
-        "emailed": 0
-      },
-      "goldman_sachs": {
-        "fetched": 1,
-        "title_ok": 1,
-        "loc_ok": 0,
-        "new": 0,
-        "emailed": 0
-      },
-      "ibm": {
-        "fetched": 10,
-        "title_ok": 8,
-        "loc_ok": 2,
-        "new": 0,
-        "emailed": 0
-      },
-      "oracle": {
-        "fetched": 0,
-        "title_ok": 0,
-        "loc_ok": 0,
-        "new": 0,
-        "emailed": 0
-      }
-    },
-    "duration_s": 13.3,
-    "cursor": null
-  },
-  {
     "ts": "2026-06-04T03:32Z",
     "mode": "boards",
     "per_source": {
@@ -44415,5 +44365,48 @@
     },
     "duration_s": 31.1,
     "cursor": null
+  },
+  {
+    "ts": "2026-09-21T20:10Z",
+    "mode": "boards",
+    "per_source": {
+      "greenhouse": {
+        "fetched": 12818,
+        "title_ok": 2845,
+        "loc_ok": 1918,
+        "new": 7,
+        "emailed": 7
+      },
+      "lever": {
+        "fetched": 1253,
+        "title_ok": 332,
+        "loc_ok": 236,
+        "new": 2,
+        "emailed": 1
+      },
+      "smartrecruiters": {
+        "fetched": 1663,
+        "title_ok": 253,
+        "loc_ok": 145,
+        "new": 1,
+        "emailed": 1
+      },
+      "ashby": {
+        "fetched": 4790,
+        "title_ok": 1074,
+        "loc_ok": 235,
+        "new": 3,
+        "emailed": 3
+      },
+      "workday": {
+        "fetched": 11000,
+        "title_ok": 1847,
+        "loc_ok": 309,
+        "new": 2,
+        "emailed": 16
+      }
+    },
+    "duration_s": 176.3,
+    "cursor": 1000
   }
 ]
