@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-09-21T20:10:12.624627+00:00",
+  "updated_utc": "2026-09-22T00:17:35.140761+00:00",
   "seen_ids": [
     "ashby:1password:03e43d8b-af31-489e-a97c-a7da66df129b",
     "ashby:1password:0e9a990d-5750-44c6-b399-887eae1fba49",
@@ -354,6 +354,7 @@
     "ashby:demandbase:544aaca7-cef4-4e82-9be1-7207a056b296",
     "ashby:demandbase:88b9264e-dd0a-4516-b6be-0f482e4c3fbe",
     "ashby:demandbase:bebc1bf3-80e7-465b-925e-34127d3f12b1",
+    "ashby:docebo:6bf0f5c4-81ca-4d1c-9714-e5e94475c9bf",
     "ashby:docebo:f004fa75-f98c-4588-969a-93c2653900bb",
     "ashby:docker:0434f9f3-8594-47e5-a568-bee58cc620d8",
     "ashby:docker:0a349102-72a0-4727-a8ac-5595176365ea",
@@ -10286,6 +10287,7 @@
     "greenhouse:newsela:7783162",
     "greenhouse:newsela:7899338",
     "greenhouse:newsela:7985789",
+    "greenhouse:newsela:8211995",
     "greenhouse:nex:5155205008",
     "greenhouse:nextdoor:2080930",
     "greenhouse:nextdoor:4980947",
