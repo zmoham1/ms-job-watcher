@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-09-25T12:15:17.762136+00:00",
+  "updated_utc": "2026-09-25T17:37:02.910594+00:00",
   "dead_details": {
     "greenhouse:auth0": {
       "first_seen_utc": "2026-02-16T03:03:47.356270+00:00",
@@ -8694,6 +8694,15 @@
       "board_url": "",
       "last_status": 404,
       "last_error": "HTTP 404/410 (board not found)"
+    },
+    "workday:autodesk:Ext": {
+      "first_seen_utc": "2026-09-25T17:33:26.690404+00:00",
+      "last_seen_utc": "2026-09-25T17:33:26.690404+00:00",
+      "platform": "workday",
+      "company": "",
+      "board_url": "",
+      "last_status": 404,
+      "last_error": "HTTP 404/410 (Workday API not found)"
     }
   }
 }
