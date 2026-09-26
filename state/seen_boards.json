@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-09-25T21:53:05.631644+00:00",
+  "updated_utc": "2026-09-26T05:30:09.551606+00:00",
   "seen_ids": [
     "ashby:1password:03e43d8b-af31-489e-a97c-a7da66df129b",
     "ashby:1password:0e9a990d-5750-44c6-b399-887eae1fba49",
@@ -9468,6 +9468,7 @@
     "greenhouse:lucidmotors:5239380007",
     "greenhouse:lucidmotors:5241344007",
     "greenhouse:lucidmotors:5242812007",
+    "greenhouse:lucidmotors:5242816007",
     "greenhouse:lucidmotors:5242861007",
     "greenhouse:lumosfiber:5099047008",
     "greenhouse:lumosfiber:5215034008",
@@ -10351,6 +10352,8 @@
     "greenhouse:neuralink:7808355003",
     "greenhouse:neuralink:7823342003",
     "greenhouse:neuralink:7987219003",
+    "greenhouse:neuralink:8005649003",
+    "greenhouse:neuralink:8005705003",
     "greenhouse:newrelic:4944097008",
     "greenhouse:newrelic:4991658008",
     "greenhouse:newrelic:4992316008",
