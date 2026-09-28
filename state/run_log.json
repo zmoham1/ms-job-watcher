@@ -1,55 +1,5 @@
 [
   {
-    "ts": "2026-06-20T14:10Z",
-    "mode": "main",
-    "per_source": {
-      "microsoft": {
-        "fetched": 157,
-        "title_ok": 34,
-        "loc_ok": 34,
-        "new": 1,
-        "emailed": 1
-      },
-      "amazon": {
-        "fetched": 300,
-        "title_ok": 255,
-        "loc_ok": 255,
-        "new": 0,
-        "emailed": 0
-      },
-      "nvidia": {
-        "fetched": 20,
-        "title_ok": 3,
-        "loc_ok": 3,
-        "new": 0,
-        "emailed": 0
-      },
-      "goldman_sachs": {
-        "fetched": 0,
-        "title_ok": 0,
-        "loc_ok": 0,
-        "new": 0,
-        "emailed": 0
-      },
-      "ibm": {
-        "fetched": 7,
-        "title_ok": 4,
-        "loc_ok": 0,
-        "new": 0,
-        "emailed": 0
-      },
-      "oracle": {
-        "fetched": 2,
-        "title_ok": 0,
-        "loc_ok": 0,
-        "new": 0,
-        "emailed": 0
-      }
-    },
-    "duration_s": 12.9,
-    "cursor": null
-  },
-  {
     "ts": "2026-06-20T23:10Z",
     "mode": "boards",
     "per_source": {
@@ -44375,5 +44325,48 @@
     },
     "duration_s": 22.0,
     "cursor": null
+  },
+  {
+    "ts": "2026-09-28T14:33Z",
+    "mode": "boards",
+    "per_source": {
+      "greenhouse": {
+        "fetched": 12837,
+        "title_ok": 2851,
+        "loc_ok": 1943,
+        "new": 1,
+        "emailed": 1
+      },
+      "lever": {
+        "fetched": 1276,
+        "title_ok": 337,
+        "loc_ok": 242,
+        "new": 1,
+        "emailed": 0
+      },
+      "smartrecruiters": {
+        "fetched": 1375,
+        "title_ok": 110,
+        "loc_ok": 91,
+        "new": 0,
+        "emailed": 0
+      },
+      "ashby": {
+        "fetched": 4781,
+        "title_ok": 1070,
+        "loc_ok": 233,
+        "new": 0,
+        "emailed": 0
+      },
+      "workday": {
+        "fetched": 11000,
+        "title_ok": 1796,
+        "loc_ok": 255,
+        "new": 3,
+        "emailed": 7
+      }
+    },
+    "duration_s": 221.6,
+    "cursor": 1000
   }
 ]
