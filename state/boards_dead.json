@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-01T00:53:22.984478+00:00",
+  "updated_utc": "2026-10-01T10:28:13.749198+00:00",
   "boards_dead": [
     "ashby:aviator",
     "ashby:contextual",
@@ -884,6 +884,7 @@
     "lever:rubrik-inc",
     "lever:salesforce-mulesoft",
     "lever:sanctuary",
+    "lever:saronic",
     "lever:segment-analytics",
     "lever:sendgrid",
     "lever:shopkick",
