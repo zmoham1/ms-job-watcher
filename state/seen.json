@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-08T00:57:04.163978+00:00",
+  "updated_utc": "2026-10-08T10:27:35.429968+00:00",
   "seen_ids": [
     "amazon:0001a63d-f66e-4a08-9c9e-812ade17341b",
     "amazon:002a7af1-76e3-4762-a911-7efd2b372dc6",
@@ -154,6 +154,7 @@
     "amazon:07be3892-f41f-4022-9457-0a5f2b359449",
     "amazon:07c26959-c343-46e0-bb7a-fc5364f1ea8b",
     "amazon:07c9f69d-7479-4d16-a3f5-3848bdff97cf",
+    "amazon:07e001fc-6da5-42e5-8f86-a15462924478",
     "amazon:07e6201b-59e9-4286-a29b-78da4518f896",
     "amazon:08004d4f-6206-40e1-885b-2bb02de0e592",
     "amazon:0810faad-a466-4bd0-9c60-518c2610bfb6",
@@ -880,6 +881,7 @@
     "amazon:31bdd9fc-3f89-47c3-b52a-992db9449289",
     "amazon:31bf1933-f742-480e-ad74-77c1c946969f",
     "amazon:31c826b9-7532-43d7-ae85-5714c788a24f",
+    "amazon:31cc4893-136d-4a28-85ad-5001def40ddf",
     "amazon:31cf8a23-8af1-45e4-a981-2dab229e448e",
     "amazon:31e534c4-d342-48f3-908c-024896e5a32c",
     "amazon:31edb6c0-6ca5-41d5-8723-3f37cbd0a026",
@@ -2124,6 +2126,7 @@
     "amazon:7942408c-ce57-4a1a-9d86-2f33b8e15a18",
     "amazon:7946fb0c-79e9-4d0e-973d-fa3075b0e5f5",
     "amazon:794f3ea0-fae8-4aef-89a5-873910cfd4d8",
+    "amazon:795672fc-3bbf-493a-8435-c0b3fb233696",
     "amazon:7964f6c6-1015-4087-86d9-ff3521099700",
     "amazon:7973d328-2807-45ce-aa2d-b8729ca3e514",
     "amazon:797b01a7-0568-42b3-8dda-730f1d2c029e",
@@ -9399,6 +9402,7 @@
     "oracle:346733",
     "oracle:346747",
     "oracle:346764",
+    "oracle:346830",
     "oracle:346841",
     "oracle:346905",
     "oracle:346913",
