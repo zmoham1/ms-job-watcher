@@ -1,56 +1,5 @@
 [
   {
-    "ts": "2026-07-14T08:26Z",
-    "mode": "main",
-    "per_source": {
-      "microsoft": {
-        "fetched": 157,
-        "title_ok": 32,
-        "loc_ok": 32,
-        "new": 0,
-        "emailed": 0
-      },
-      "amazon": {
-        "fetched": 300,
-        "title_ok": 239,
-        "loc_ok": 239,
-        "new": 0,
-        "emailed": 0
-      },
-      "nvidia": {
-        "fetched": 180,
-        "title_ok": 28,
-        "loc_ok": 28,
-        "new": 0,
-        "emailed": 0
-      },
-      "goldman_sachs": {
-        "fetched": 80,
-        "title_ok": 30,
-        "loc_ok": 30,
-        "new": 0,
-        "emailed": 0
-      },
-      "ibm": {
-        "fetched": 0,
-        "title_ok": 0,
-        "loc_ok": 0,
-        "new": 0,
-        "emailed": 0,
-        "error": "IBM fetch: HTTPError: 502 Server Error: Bad Gateway for url: https://www-api.ibm.com/search/api/v2"
-      },
-      "oracle": {
-        "fetched": 190,
-        "title_ok": 30,
-        "loc_ok": 30,
-        "new": 0,
-        "emailed": 0
-      }
-    },
-    "duration_s": 44.6,
-    "cursor": null
-  },
-  {
     "ts": "2026-07-14T08:57Z",
     "mode": "boards",
     "per_source": {
@@ -44377,5 +44326,49 @@
     },
     "duration_s": 27.7,
     "cursor": null
+  },
+  {
+    "ts": "2026-10-08T11:00Z",
+    "mode": "boards",
+    "per_source": {
+      "lever": {
+        "fetched": 1995,
+        "title_ok": 208,
+        "loc_ok": 120,
+        "new": 1,
+        "emailed": 1
+      },
+      "greenhouse": {
+        "fetched": 19368,
+        "title_ok": 4090,
+        "loc_ok": 2353,
+        "new": 12,
+        "emailed": 12
+      },
+      "smartrecruiters": {
+        "fetched": 2249,
+        "title_ok": 379,
+        "loc_ok": 102,
+        "new": 4,
+        "emailed": 4
+      },
+      "ashby": {
+        "fetched": 161,
+        "title_ok": 17,
+        "loc_ok": 0,
+        "new": 0,
+        "emailed": 0
+      },
+      "workday": {
+        "fetched": 23747,
+        "title_ok": 5031,
+        "loc_ok": 1901,
+        "new": 183,
+        "emailed": 228,
+        "errors": 1
+      }
+    },
+    "duration_s": 247.3,
+    "cursor": 500
   }
 ]
