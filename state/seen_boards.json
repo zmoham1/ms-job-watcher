@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-14T17:39:38.987311+00:00",
+  "updated_utc": "2026-10-14T21:57:03.734426+00:00",
   "seen_ids": [
     "ashby:1password:03e43d8b-af31-489e-a97c-a7da66df129b",
     "ashby:1password:0e9a990d-5750-44c6-b399-887eae1fba49",
@@ -507,6 +507,7 @@
     "ashby:formenergy:7e308d89-4c08-4de8-b6b3-f12cf06e0c1d",
     "ashby:formenergy:7f691074-b05c-4b61-857d-17da14bd069d",
     "ashby:formenergy:81896404-84bc-42f3-830d-23ee75cbea9b",
+    "ashby:formenergy:84edb010-8886-41c3-8fcb-a107f73dc3d7",
     "ashby:formenergy:8748ddb6-7184-4bf8-8fd1-72e1ca30eacb",
     "ashby:formenergy:87c5030a-7478-4ce1-9504-b32c9ef5609d",
     "ashby:formenergy:89a6b8a2-e3f6-47c6-a8f1-f913ec46f6da",
@@ -7843,6 +7844,8 @@
     "greenhouse:efficientcomputer:4303170009",
     "greenhouse:efficientcomputer:4385243009",
     "greenhouse:efficientcomputer:4391770009",
+    "greenhouse:efficientcomputer:4452346009",
+    "greenhouse:efficientcomputer:4452371009",
     "greenhouse:elastic:7360686",
     "greenhouse:elastic:7366822",
     "greenhouse:elastic:7380710",
@@ -8434,6 +8437,7 @@
     "greenhouse:freedomconsulting:5252836007",
     "greenhouse:freedomconsulting:5252868007",
     "greenhouse:freedomconsulting:5255674007",
+    "greenhouse:freedomconsulting:5265949007",
     "greenhouse:freeformfuturecorp:6693521003",
     "greenhouse:freeformfuturecorp:6853937003",
     "greenhouse:freeformfuturecorp:7631560003",
