@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-14T05:24:52.691166+00:00",
+  "updated_utc": "2026-10-14T12:28:42.094493+00:00",
   "boards_dead": [
     "ashby:aviator",
     "ashby:cloudtrucks",
@@ -108,6 +108,7 @@
     "greenhouse:crunchbase",
     "greenhouse:crushmetrics",
     "greenhouse:cuddle",
+    "greenhouse:cybereason",
     "greenhouse:cybergrx",
     "greenhouse:dataminr",
     "greenhouse:datarobot",
