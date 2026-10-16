@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-15T21:18:52.400744+00:00",
+  "updated_utc": "2026-10-16T04:23:49.217415+00:00",
   "seen_ids": [
     "amazon:0001a63d-f66e-4a08-9c9e-812ade17341b",
     "amazon:002a7af1-76e3-4762-a911-7efd2b372dc6",
@@ -1301,6 +1301,7 @@
     "amazon:46617074-eb06-4d68-9e81-56a788521333",
     "amazon:467ef60c-a0af-4e97-a08c-2fa619fc485b",
     "amazon:46974805-e044-4569-835f-98356228c031",
+    "amazon:46b09a00-26bb-4872-91e4-feeb75c7d9ec",
     "amazon:46c2d166-9be2-4b5d-b16f-4e95d39a354e",
     "amazon:46d9f1fd-fd5f-4ca1-8390-fed19213c117",
     "amazon:46dc78ee-67ac-455b-ad13-bd89afc1e55a",
@@ -2176,6 +2177,7 @@
     "amazon:77a15f7a-ebd0-4538-a280-63de7dd86f20",
     "amazon:77b89b59-7a51-4094-b819-342dfa6dac8e",
     "amazon:77c44adb-e44d-4a4f-8bd4-261232b8145c",
+    "amazon:77d7db49-e1d9-49f2-ad85-669b0fcd0dae",
     "amazon:78068042-b12d-44b4-8861-7ab7ca80d355",
     "amazon:780a594f-8de8-4aed-b057-6e51e36e7564",
     "amazon:7810cf63-57ed-4d47-9f3f-ecc8e5bbd0e4",
@@ -3927,6 +3929,7 @@
     "amazon:d0d26230-6e56-4757-b0fa-2e3c7fa0c71c",
     "amazon:d0dab3a2-84e5-4098-ab7b-abd5a193eb14",
     "amazon:d0f5e44e-5982-422a-9434-06769cbff769",
+    "amazon:d0f93166-ab59-4ac8-b4b6-f4b76067160d",
     "amazon:d110b37b-b2fb-41b5-b123-330902407836",
     "amazon:d11ccce7-9d6f-4c47-907c-d15d75d399bf",
     "amazon:d12f5f24-c553-4980-8fd8-27d0874776dc",
@@ -4791,6 +4794,7 @@
     "amazon:fa27af91-69ca-44c7-a1d2-a0566e7c0419",
     "amazon:fa27c2eb-067f-4bd1-95bc-4844e7a25c17",
     "amazon:fa311d02-a50f-402f-b479-31c1e562f4fc",
+    "amazon:fa398251-4429-4106-ad4e-331b18598dc9",
     "amazon:fa3c9d0b-d21a-4ee4-a1ee-a8075ccbb7e8",
     "amazon:fa3e7d80-1185-4bb0-88f5-2c6fbb69a1d7",
     "amazon:fa504717-3d61-48e4-a758-bd64a82560ef",
@@ -9612,6 +9616,7 @@
     "oracle:347069",
     "oracle:347145",
     "oracle:347172",
+    "oracle:347207",
     "oracle:347331",
     "oracle:347396",
     "oracle:347431",
@@ -9630,7 +9635,10 @@
     "oracle:347555",
     "oracle:347558",
     "oracle:347599",
+    "oracle:347622",
     "oracle:347652",
-    "oracle:347683"
+    "oracle:347683",
+    "oracle:347710",
+    "oracle:347774"
   ]
 }
