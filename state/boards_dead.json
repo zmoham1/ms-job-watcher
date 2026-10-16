@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-16T17:02:47.939459+00:00",
+  "updated_utc": "2026-10-16T21:46:39.511264+00:00",
   "boards_dead": [
     "ashby:aviator",
     "ashby:cloudtrucks",
@@ -750,6 +750,7 @@
     "greenhouse:wealthsimple",
     "greenhouse:weatherchannel",
     "greenhouse:webex",
+    "greenhouse:webflow",
     "greenhouse:webroot",
     "greenhouse:wecompany",
     "greenhouse:weecare",
