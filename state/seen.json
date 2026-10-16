@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-16T21:01:05.174636+00:00",
+  "updated_utc": "2026-10-16T23:31:52.429216+00:00",
   "seen_ids": [
     "amazon:0001a63d-f66e-4a08-9c9e-812ade17341b",
     "amazon:002a7af1-76e3-4762-a911-7efd2b372dc6",
@@ -1718,6 +1718,7 @@
     "amazon:5d903641-90c3-4799-8e62-61f287ee5caf",
     "amazon:5dc8d3f4-a032-4e8a-a065-6b32b2d18a11",
     "amazon:5dcbae5e-0fe2-4c65-9fcf-41c1ba28e663",
+    "amazon:5ddf1c3b-505d-48e7-8a99-108d5c9a1d62",
     "amazon:5df5b990-0bb4-4b14-ac4b-718428ffaf28",
     "amazon:5dfbbbaa-af84-4c90-a299-5c821345db01",
     "amazon:5e005060-d489-4efe-982b-184c6a0b25d2",
@@ -9637,6 +9638,7 @@
     "oracle:347207",
     "oracle:347331",
     "oracle:347396",
+    "oracle:347419",
     "oracle:347431",
     "oracle:347443",
     "oracle:347483",
@@ -9654,6 +9656,7 @@
     "oracle:347558",
     "oracle:347599",
     "oracle:347622",
+    "oracle:347651",
     "oracle:347652",
     "oracle:347683",
     "oracle:347710",
