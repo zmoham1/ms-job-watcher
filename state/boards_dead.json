@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-17T11:14:35.565256+00:00",
+  "updated_utc": "2026-10-17T15:59:43.748979+00:00",
   "boards_dead": [
     "ashby:aviator",
     "ashby:cloudtrucks",
@@ -385,6 +385,7 @@
     "greenhouse:painreform",
     "greenhouse:paloaltonetworks",
     "greenhouse:panoramaed",
+    "greenhouse:pantherlabs",
     "greenhouse:paradigm",
     "greenhouse:paritytech",
     "greenhouse:passfort",
