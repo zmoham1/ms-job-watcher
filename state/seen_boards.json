@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-16T21:46:39.446048+00:00",
+  "updated_utc": "2026-10-17T05:00:13.316019+00:00",
   "seen_ids": [
     "ashby:1password:03e43d8b-af31-489e-a97c-a7da66df129b",
     "ashby:1password:0e9a990d-5750-44c6-b399-887eae1fba49",
@@ -476,6 +476,7 @@
     "ashby:formenergy:44ce79ef-7499-463c-9d67-a26e78a8e8da",
     "ashby:formenergy:4949680f-c370-4b5b-be3a-3e287e1cf802",
     "ashby:formenergy:4b48d308-b7f6-447e-8aa6-4a8bbe095784",
+    "ashby:formenergy:4b68bee8-34f7-447d-863d-f6eee93698c7",
     "ashby:formenergy:4cda652b-83dc-4ead-90b3-6a387d18aff9",
     "ashby:formenergy:4d1baf17-6443-42fa-a21e-470072c396a8",
     "ashby:formenergy:4d61360a-6528-43fe-a8ef-067d9b11b3f6",
@@ -858,6 +859,7 @@
     "ashby:radai:2697a7e4-b706-4f91-884d-2f2d87b7009a",
     "ashby:radai:8b4ed34e-501e-4d98-96d8-dcedac400e3c",
     "ashby:radai:9e9e7616-69fc-4840-ac85-8ee74b0ea8ea",
+    "ashby:radai:df814c1f-2d46-49b9-89d7-4b211a05b751",
     "ashby:railway:541836a1-6d3f-47bf-845f-5f48fe547568",
     "ashby:railway:6ddcfe47-6cce-469b-ba6d-4f0e83440c9d",
     "ashby:railway:7d42f0e8-15a5-453d-8992-9e8638846077",
@@ -9754,6 +9756,7 @@
     "greenhouse:lucidmotors:5214146007",
     "greenhouse:lucidmotors:5214375007",
     "greenhouse:lucidmotors:5215428007",
+    "greenhouse:lucidmotors:5215431007",
     "greenhouse:lucidmotors:5215439007",
     "greenhouse:lucidmotors:5215442007",
     "greenhouse:lucidmotors:5215447007",
@@ -10909,6 +10912,7 @@
     "greenhouse:oklo:6214372004",
     "greenhouse:oklo:6214786004",
     "greenhouse:oklo:6226315004",
+    "greenhouse:oklo:6227574004",
     "greenhouse:okta:6948361",
     "greenhouse:okta:7405481",
     "greenhouse:okta:7425892",
