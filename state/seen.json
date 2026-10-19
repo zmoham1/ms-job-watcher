@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-19T04:32:13.861093+00:00",
+  "updated_utc": "2026-10-19T13:00:19.520356+00:00",
   "seen_ids": [
     "amazon:0001a63d-f66e-4a08-9c9e-812ade17341b",
     "amazon:002a7af1-76e3-4762-a911-7efd2b372dc6",
@@ -101,6 +101,7 @@
     "amazon:04c46acd-19a0-4996-92fb-8a4187b8fdc8",
     "amazon:04cd3b81-2dd1-4ff0-bcdc-a10be144361c",
     "amazon:04d61a34-d4db-4f68-880d-110dfdbce1c7",
+    "amazon:04dc381b-5042-49aa-9219-a6ec7de7485a",
     "amazon:04e9ab02-b068-4584-a669-1c932b812990",
     "amazon:051409a2-401d-4988-b2ea-d30c80aa319f",
     "amazon:0518f69d-04ce-4894-ad15-40ffb5dc4a2a",
@@ -4988,6 +4989,8 @@
     "goldman_sachs:179023_GS_MID_CAREER",
     "goldman_sachs:181257_GS_MID_CAREER",
     "goldman_sachs:184065_GS_MID_CAREER",
+    "goldman_sachs:186689_GS_MID_CAREER",
+    "goldman_sachs:187069_GS_MID_CAREER",
     "greenhouse:10xgenomics:7302038",
     "greenhouse:10xgenomics:7318084",
     "greenhouse:affirm:6642236003",
