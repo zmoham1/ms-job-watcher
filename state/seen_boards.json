@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-19T05:24:25.468416+00:00",
+  "updated_utc": "2026-10-19T14:00:28.045652+00:00",
   "seen_ids": [
     "ashby:1password:03e43d8b-af31-489e-a97c-a7da66df129b",
     "ashby:1password:0e9a990d-5750-44c6-b399-887eae1fba49",
@@ -12085,6 +12085,7 @@
     "greenhouse:reddit:8275143",
     "greenhouse:reddit:8282760",
     "greenhouse:reddit:8283770",
+    "greenhouse:reddit:8299781",
     "greenhouse:redventures:7051065",
     "greenhouse:redventures:7140149",
     "greenhouse:redventures:7195522",
@@ -16946,6 +16947,7 @@
     "greenhouse:turing:6198751004",
     "greenhouse:turing:6203705004",
     "greenhouse:turing:6207732004",
+    "greenhouse:turing:6227623004",
     "greenhouse:twilio:7059734",
     "greenhouse:twilio:7061880",
     "greenhouse:twilio:7070250",
@@ -21781,6 +21783,9 @@
     "smartrecruiters:ServiceNow:744000156078199",
     "smartrecruiters:ServiceNow:744000156132709",
     "smartrecruiters:ServiceNow:744000156132859",
+    "smartrecruiters:ServiceNow:744000156263336",
+    "smartrecruiters:ServiceNow:744000156267489",
+    "smartrecruiters:ServiceNow:744000156313940",
     "smartrecruiters:Slack2:743999931040577",
     "smartrecruiters:Tyco:111331183",
     "smartrecruiters:Tyco:111331399",
