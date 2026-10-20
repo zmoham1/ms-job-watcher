@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-20T05:24:39.806824+00:00",
+  "updated_utc": "2026-10-20T12:13:35.026445+00:00",
   "boards_dead": [
     "ashby:aviator",
     "ashby:cloudtrucks",
@@ -501,6 +501,7 @@
     "greenhouse:sap",
     "greenhouse:schrodinger",
     "greenhouse:schwab",
+    "greenhouse:scoutai",
     "greenhouse:scribd",
     "greenhouse:scylladb",
     "greenhouse:seagate",
