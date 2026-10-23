@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-22T21:30:06.921341+00:00",
+  "updated_utc": "2026-10-23T04:40:21.826844+00:00",
   "seen_ids": [
     "amazon:0001a63d-f66e-4a08-9c9e-812ade17341b",
     "amazon:002a7af1-76e3-4762-a911-7efd2b372dc6",
@@ -3918,6 +3918,7 @@
     "amazon:caacdfd8-5665-4bb6-be74-9208b4a6e575",
     "amazon:caaf2d42-2fe0-4bbd-a43b-a8eb26f9b9e2",
     "amazon:cabd5ce2-8e04-4bcd-a211-a008f62c3c26",
+    "amazon:cac0b4a0-db78-4842-955f-3c9027119f0f",
     "amazon:cac33eaa-7286-4a36-816d-59aeb433c8b4",
     "amazon:cac97fa5-0e6a-4499-a127-4a5e3b0df7f2",
     "amazon:cafbe351-5fce-4b85-b912-98858f0a08bc",
@@ -4766,6 +4767,7 @@
     "amazon:f23f59ed-a3f7-4a04-bc67-283677cdbe16",
     "amazon:f24d5dcc-012d-45c4-b41e-bbff0fe9652b",
     "amazon:f260b6fd-f2fa-40ef-b7a3-42805e110eb8",
+    "amazon:f265a89b-bad5-47a3-9410-16682624b0f6",
     "amazon:f2668dbe-ed7b-4bfc-bfb5-4e14760392b6",
     "amazon:f267758c-cb79-4c57-9024-0adadf63c64f",
     "amazon:f28328e8-e5f2-497e-aa36-b8d3a0798797",
@@ -8571,6 +8573,7 @@
     "microsoft:1970393557040458",
     "microsoft:1970393557040524",
     "microsoft:1970393557040563",
+    "microsoft:1970393557041624",
     "microsoft:1970393557041673",
     "microsoft:1970393557042160",
     "microsoft:1970393557044232",
