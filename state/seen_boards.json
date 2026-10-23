@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-23T05:26:56.265787+00:00",
+  "updated_utc": "2026-10-23T12:08:32.680560+00:00",
   "seen_ids": [
     "ashby:1password:005d4b48-d31e-449f-90b7-83313f98a907",
     "ashby:1password:03e43d8b-af31-489e-a97c-a7da66df129b",
@@ -445,6 +445,7 @@
     "ashby:factory:be7a5efa-a4c4-4cab-bfe1-3b44e61f2019",
     "ashby:factory:c5c92ee0-6ab9-4e91-b73a-63700c85fa5f",
     "ashby:factory:ca2b1c66-153e-4353-9a59-4b2acbfbb2f0",
+    "ashby:factory:e14aa79f-d498-4fdd-a299-cb8927641876",
     "ashby:fiddler-ai:affbd5a5-0262-4da6-8c28-0ed1faef15b6",
     "ashby:formenergy:018bb73d-a291-4eb9-a29e-ab040f0b9a06",
     "ashby:formenergy:0379c4aa-a6ef-42f1-b364-47067f71419e",
@@ -595,6 +596,7 @@
     "ashby:formenergy:d3fe6cbc-eade-47f4-91f4-08af3e5bdcf3",
     "ashby:formenergy:d64ed9af-fb15-4ec1-af93-5cab8da7daa3",
     "ashby:formenergy:d9278f03-01ce-41aa-a749-e4264d6b56cd",
+    "ashby:formenergy:d9bd461f-541f-453f-bbdb-ec66945ba1d4",
     "ashby:formenergy:e13679dc-6c3f-4fc5-8f52-2d4f553fa8ef",
     "ashby:formenergy:e1d90b76-609a-455e-a5f2-2091b154d7ac",
     "ashby:formenergy:e26a0733-907e-4fdc-ad58-21faeffd57d7",
@@ -8423,6 +8425,7 @@
     "greenhouse:forter:8379012002",
     "greenhouse:forter:8558661002",
     "greenhouse:forter:8880128002",
+    "greenhouse:forteracorporation:4746703005",
     "greenhouse:fourhands:4101491009",
     "greenhouse:fourhands:4136176009",
     "greenhouse:fourhands:4146016009",
