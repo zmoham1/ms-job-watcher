@@ -1,34 +1,5 @@
 [
   {
-    "ts": "2026-07-24T11:24Z",
-    "mode": "boards",
-    "per_source": {
-      "ashby": {
-        "fetched": 1907,
-        "title_ok": 445,
-        "loc_ok": 156,
-        "new": 0,
-        "emailed": 0
-      },
-      "greenhouse": {
-        "fetched": 4260,
-        "title_ok": 857,
-        "loc_ok": 505,
-        "new": 1,
-        "emailed": 1
-      },
-      "lever": {
-        "fetched": 1602,
-        "title_ok": 547,
-        "loc_ok": 224,
-        "new": 1,
-        "emailed": 1
-      }
-    },
-    "duration_s": 7.0,
-    "cursor": 0
-  },
-  {
     "ts": "2026-07-24T14:07Z",
     "mode": "main",
     "per_source": {
@@ -44377,5 +44348,56 @@
     },
     "duration_s": 9.7,
     "cursor": 0
+  },
+  {
+    "ts": "2026-10-25T23:11Z",
+    "mode": "main",
+    "per_source": {
+      "microsoft": {
+        "fetched": 0,
+        "title_ok": 0,
+        "loc_ok": 0,
+        "new": 0,
+        "emailed": 0,
+        "error": "Microsoft fetch: HTTPError: 429 Client Error: Too Many Requests for url: https://apply.careers.microsoft.com/api/pcsx/search?domain=microsoft.com&query=&location=United+States%2C+Multiple+Locations%2C+Multiple+Locations&start=0&sort_by=timestamp&filter_include_remote=1&filter_seniority=Entry&filter_seniority=Mid-Level"
+      },
+      "amazon": {
+        "fetched": 300,
+        "title_ok": 248,
+        "loc_ok": 248,
+        "new": 0,
+        "emailed": 0
+      },
+      "nvidia": {
+        "fetched": 280,
+        "title_ok": 34,
+        "loc_ok": 34,
+        "new": 0,
+        "emailed": 0
+      },
+      "goldman_sachs": {
+        "fetched": 31,
+        "title_ok": 9,
+        "loc_ok": 9,
+        "new": 0,
+        "emailed": 0
+      },
+      "ibm": {
+        "fetched": 20,
+        "title_ok": 14,
+        "loc_ok": 14,
+        "new": 0,
+        "emailed": 0
+      },
+      "oracle": {
+        "fetched": 200,
+        "title_ok": 35,
+        "loc_ok": 35,
+        "new": 0,
+        "emailed": 0
+      }
+    },
+    "duration_s": 22.5,
+    "cursor": null
   }
 ]
