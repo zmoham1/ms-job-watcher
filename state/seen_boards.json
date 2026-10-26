@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-26T05:21:37.403865+00:00",
+  "updated_utc": "2026-10-26T13:35:21.620513+00:00",
   "seen_ids": [
     "ashby:1password:005d4b48-d31e-449f-90b7-83313f98a907",
     "ashby:1password:03e43d8b-af31-489e-a97c-a7da66df129b",
@@ -163,6 +163,7 @@
     "ashby:airwallex:c7bca6ce-4d34-44ab-823c-3b73ab0b93df",
     "ashby:airwallex:caa87fcf-668a-4990-86fd-c05acad45a1e",
     "ashby:airwallex:cb91273a-d4fe-4be0-8759-a0de1bc5098b",
+    "ashby:airwallex:d017c59d-2ea5-4f52-86af-3bbf67a34c0c",
     "ashby:airwallex:d028d728-2474-41f9-a48f-f9c65ae207a1",
     "ashby:airwallex:d943812b-edf6-4f92-bce3-1bbab2d8a480",
     "ashby:airwallex:db223096-8938-4646-a336-865443278617",
@@ -9901,6 +9902,7 @@
     "greenhouse:lucidmotors:5249428007",
     "greenhouse:lucidmotors:5250504007",
     "greenhouse:lucidmotors:5252481007",
+    "greenhouse:lucidmotors:5254379007",
     "greenhouse:lucidmotors:5254390007",
     "greenhouse:lucidmotors:5254760007",
     "greenhouse:lucidmotors:5254774007",
