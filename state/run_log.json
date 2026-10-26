@@ -1,48 +1,5 @@
 [
   {
-    "ts": "2026-07-24T14:29Z",
-    "mode": "boards",
-    "per_source": {
-      "greenhouse": {
-        "fetched": 18178,
-        "title_ok": 3689,
-        "loc_ok": 2145,
-        "new": 0,
-        "emailed": 0
-      },
-      "lever": {
-        "fetched": 1848,
-        "title_ok": 168,
-        "loc_ok": 104,
-        "new": 0,
-        "emailed": 0
-      },
-      "ashby": {
-        "fetched": 145,
-        "title_ok": 12,
-        "loc_ok": 0,
-        "new": 0,
-        "emailed": 0
-      },
-      "smartrecruiters": {
-        "fetched": 2050,
-        "title_ok": 385,
-        "loc_ok": 111,
-        "new": 0,
-        "emailed": 0
-      },
-      "workday": {
-        "fetched": 25243,
-        "title_ok": 5205,
-        "loc_ok": 1814,
-        "new": 17,
-        "emailed": 0
-      }
-    },
-    "duration_s": 282.7,
-    "cursor": 500
-  },
-  {
     "ts": "2026-07-24T16:54Z",
     "mode": "main",
     "per_source": {
@@ -44393,5 +44350,55 @@
     },
     "duration_s": 244.0,
     "cursor": 500
+  },
+  {
+    "ts": "2026-10-26T04:38Z",
+    "mode": "main",
+    "per_source": {
+      "microsoft": {
+        "fetched": 223,
+        "title_ok": 40,
+        "loc_ok": 40,
+        "new": 0,
+        "emailed": 0
+      },
+      "amazon": {
+        "fetched": 300,
+        "title_ok": 248,
+        "loc_ok": 248,
+        "new": 0,
+        "emailed": 0
+      },
+      "nvidia": {
+        "fetched": 280,
+        "title_ok": 34,
+        "loc_ok": 34,
+        "new": 0,
+        "emailed": 0
+      },
+      "goldman_sachs": {
+        "fetched": 31,
+        "title_ok": 9,
+        "loc_ok": 9,
+        "new": 0,
+        "emailed": 0
+      },
+      "ibm": {
+        "fetched": 20,
+        "title_ok": 14,
+        "loc_ok": 14,
+        "new": 0,
+        "emailed": 0
+      },
+      "oracle": {
+        "fetched": 186,
+        "title_ok": 33,
+        "loc_ok": 33,
+        "new": 0,
+        "emailed": 0
+      }
+    },
+    "duration_s": 27.1,
+    "cursor": null
   }
 ]
