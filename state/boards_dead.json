@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-30T18:13:20.935102+00:00",
+  "updated_utc": "2026-10-30T22:43:16.575211+00:00",
   "boards_dead": [
     "ashby:aviator",
     "ashby:cloudtrucks",
@@ -55,6 +55,7 @@
     "greenhouse:biorender",
     "greenhouse:bitly",
     "greenhouse:blinkist",
+    "greenhouse:blueconic",
     "greenhouse:bluelabs",
     "greenhouse:bolt",
     "greenhouse:bonterra",
