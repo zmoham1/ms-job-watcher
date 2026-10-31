@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-31T06:20:53.551058+00:00",
+  "updated_utc": "2026-10-31T13:05:34.417562+00:00",
   "seen_ids": [
     "ashby:1password:005d4b48-d31e-449f-90b7-83313f98a907",
     "ashby:1password:03e43d8b-af31-489e-a97c-a7da66df129b",
@@ -473,6 +473,7 @@
     "ashby:formenergy:20d5333a-cf42-40d6-8392-f9f9b003149b",
     "ashby:formenergy:2a3fe4e5-8901-494e-b58f-81757935efc6",
     "ashby:formenergy:2b1ae5b7-0a25-46bb-a09c-40db134ad53f",
+    "ashby:formenergy:2d87c048-9c9b-4ec6-8712-69676e0b4612",
     "ashby:formenergy:2fccc099-49a0-4a36-b649-99f878146b5d",
     "ashby:formenergy:2fe771f1-41f3-48ac-9e85-36d1efe1526f",
     "ashby:formenergy:3120cb2f-0594-41c4-8ca7-597542cb2108",
@@ -5438,6 +5439,7 @@
     "greenhouse:armada:5406390008",
     "greenhouse:armada:5409777008",
     "greenhouse:armada:5439105008",
+    "greenhouse:armada:5458611008",
     "greenhouse:artefactus:8112399002",
     "greenhouse:artefactus:8214988002",
     "greenhouse:artefactus:8334907002",
