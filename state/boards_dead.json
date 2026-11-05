@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-05T01:55:14.690660+00:00",
+  "updated_utc": "2026-11-05T11:30:55.789418+00:00",
   "boards_dead": [
     "ashby:aviator",
     "ashby:cloudtrucks",
@@ -815,6 +815,7 @@
     "lever:accenture",
     "lever:adobe",
     "lever:applovin",
+    "lever:beta",
     "lever:bitnami",
     "lever:box",
     "lever:bytedance",
