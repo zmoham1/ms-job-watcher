@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-10T01:28:27.673070+00:00",
+  "updated_utc": "2026-11-10T11:01:57.840079+00:00",
   "seen_ids": [
     "amazon:0001a63d-f66e-4a08-9c9e-812ade17341b",
     "amazon:002a7af1-76e3-4762-a911-7efd2b372dc6",
@@ -295,6 +295,7 @@
     "amazon:0e23f708-d9f6-4082-8742-d7ba91d8f045",
     "amazon:0e25126e-25d8-40c1-9044-46df5f178f38",
     "amazon:0e3d54e0-1610-4497-831f-05d13117382d",
+    "amazon:0e418d48-6942-4a38-ae83-be1c08cbe437",
     "amazon:0e482eca-fe97-4ddb-9375-e6ca7bdb4e7d",
     "amazon:0e532a84-7bcb-438d-8973-bc58f22655c8",
     "amazon:0e62d0d1-72b1-4c01-bbf3-c291f9b38bd7",
@@ -3946,6 +3947,7 @@
     "amazon:c2318e1f-6c3a-4108-9d89-8a039bbbb71e",
     "amazon:c23de724-cfeb-4bda-965c-375a0acb3e12",
     "amazon:c24241b7-2f2d-4d9a-a88b-4edef68cd9a8",
+    "amazon:c247135d-5dfa-41af-be81-997ea3866d02",
     "amazon:c24ca61c-faef-4678-ac8c-0e6a5bab7d12",
     "amazon:c2513b43-a013-4603-8d76-399c886c1551",
     "amazon:c26d5aa7-f624-472d-8c64-bcc5d59cf6b6",
@@ -4622,6 +4624,7 @@
     "amazon:e047fbb2-a1f8-407c-83e8-51b755388c85",
     "amazon:e04d1b0b-d732-406f-8c90-decc193d88b4",
     "amazon:e05a3092-e709-4fa3-8e7c-faa4922bca5d",
+    "amazon:e077637e-a98f-44b3-8bd0-a9664020ffc1",
     "amazon:e08bad24-fb7c-4621-9032-bd5d8b95812e",
     "amazon:e0a496aa-7d69-449c-aef6-5b417c380fc2",
     "amazon:e0ad042c-31ed-4344-ac8b-1f3c2d472890",
@@ -5239,6 +5242,7 @@
     "amazon:fa398251-4429-4106-ad4e-331b18598dc9",
     "amazon:fa3c9d0b-d21a-4ee4-a1ee-a8075ccbb7e8",
     "amazon:fa3e7d80-1185-4bb0-88f5-2c6fbb69a1d7",
+    "amazon:fa4a4f6a-0337-4cf1-892e-c96ee9003fa7",
     "amazon:fa504717-3d61-48e4-a758-bd64a82560ef",
     "amazon:fa5e975c-ab01-4bd3-9f2b-3d22a6bcd497",
     "amazon:fa6b3efa-598d-404a-af99-e7592136eda6",
@@ -8903,6 +8907,7 @@
     "microsoft:1970393557041673",
     "microsoft:1970393557042160",
     "microsoft:1970393557042226",
+    "microsoft:1970393557044231",
     "microsoft:1970393557044232",
     "microsoft:1970393557044234",
     "microsoft:1970393557044316",
@@ -8914,6 +8919,7 @@
     "microsoft:1970393557050194",
     "microsoft:1970393557050617",
     "microsoft:1970393557053467",
+    "microsoft:1970393557055294",
     "nvidia:893375058075",
     "nvidia:893375061894",
     "nvidia:893375062052",
@@ -10282,6 +10288,7 @@
     "oracle:349656",
     "oracle:349657",
     "oracle:349677",
+    "oracle:349727",
     "oracle:349730",
     "oracle:349736",
     "oracle:349748",
@@ -10303,10 +10310,13 @@
     "oracle:349848",
     "oracle:349877",
     "oracle:349883",
+    "oracle:349887",
     "oracle:349926",
     "oracle:350012",
     "oracle:350024",
     "oracle:350030",
-    "oracle:350042"
+    "oracle:350042",
+    "oracle:350052",
+    "oracle:350062"
   ]
 }
